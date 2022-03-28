@@ -6,6 +6,10 @@
       </el-carousel-item>
     </el-carousel>
     <Post postTitle="帖子标题" postUser="发帖人"></Post>
+    <Post postTitle="帖子标题" postUser="发帖人"></Post>
+    <Post postTitle="帖子标题" postUser="发帖人"></Post>
+    <Post postTitle="帖子标题" postUser="发帖人"></Post>
+    <Post postTitle="帖子标题" postUser="发帖人"></Post>
   </div>
 </template>
 
