@@ -1,32 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-container>
+      <el-header>
+        <LayoutHeader></LayoutHeader>
+      </el-header>
+      <el-main>
+        <LayoutBody></LayoutBody>
+      </el-main>
+      <el-footer>
+        <LayoutFooter></LayoutFooter>
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
+<script>
+import LayoutHeader from './components/layout/LayoutHeader.vue'
+import LayoutBody from './components/layout/LayoutBody.vue'
+import LayoutFooter from './components/layout/LayoutFooter.vue'
+
+export default {
+  name: "app",
+  components: {
+    LayoutHeader,
+    LayoutBody,
+    LayoutFooter
+  }
+}
+
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .el-header {
+    background-color: #B3C0D1;
+    text-align: start;
+  }
+  .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+  
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+  
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
+  }
+  
+  body > .el-container {
+    margin-bottom: 40px;
+  }
 </style>
