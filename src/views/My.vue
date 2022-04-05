@@ -7,10 +7,10 @@
                         <el-avatar :size="150" :src="user.avatarURL"></el-avatar>
                         <div v-if="!editProfile">
                             <span>
-                                <i class="el-icon-user"></i>关注数: 100 &emsp;&emsp;
+                                <el-link :underline="false" href="/followers"><i class="el-icon-user"></i>关注数: 100 </el-link>&emsp;&emsp;
                             </span>
                             <span>
-                                <i class="el-icon-star-off"></i>粉丝数: 20
+                                <el-link :underline="false" href="/following"><i class="el-icon-star-off"></i>粉丝数: 20 </el-link>
                             </span>
                             <el-descriptions :column="1" title="个人信息">
                                 <el-descriptions-item label="用户名">{{ user.username }}</el-descriptions-item>
@@ -49,7 +49,7 @@
                     <el-card>
                         <el-tabs v-model="activeName">
                             <el-tab-pane label="我的贴子" name="first">
-                                <el-card v-for="post in posts" :key="id">{{ post.title }}</el-card>
+                                <el-card class="my-post" v-for="post in posts" :key="id">{{ post.title }}</el-card>
                             </el-tab-pane>
                             <el-tab-pane label="其他" name="second">其他</el-tab-pane>
                             <el-tab-pane label="其他" name="third">其他</el-tab-pane>
@@ -125,5 +125,8 @@ export default {
 }
 .el-descriptions {
     margin-top: 20px;
+}
+.my-post {
+    margin-bottom: 20px;
 }
 </style>
