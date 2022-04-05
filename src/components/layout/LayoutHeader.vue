@@ -19,6 +19,7 @@
                 点击切换isLogin(测试按钮)
             </el-button>
         </div>
+
         <!-- 右边的 头像 / 注册登录 -->
         <div v-if="$store.state.isLogin" class="header-right">
             <el-popover 
@@ -34,6 +35,11 @@
                 注册 / 登录
             </el-button>
         </div>
+
+        <!-- 消息 -->
+        <div v-if="$store.state.isLogin" class="header-right">
+            <el-button @click="routeToCreatePost" type="primary">创建帖子</el-button>
+        </div>
         
         <!-- 消息 -->
         <div v-if="$store.state.isLogin" class="header-right">
@@ -41,7 +47,6 @@
                 <el-button @click="routeToMessage">消息</el-button>
             </el-badge>
         </div>
-       
 
     </div>
 </template>
@@ -65,9 +70,14 @@ export default {
         routeToMessage() {
             this.$router.push('/message')
         },
+        // 点击创建帖子
+        routeToCreatePost() {
+            this.$router.push('/create')
+        },
         toggleIsLogin() {
             this.$store.commit('changeIsLogin', !this.$store.state.isLogin)
-        }
+        },
+        
     }
 }
 </script>

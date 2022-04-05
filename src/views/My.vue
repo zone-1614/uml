@@ -1,8 +1,8 @@
 <template>
     <el-container>
         <el-main>
-            <el-row :gutter="30">
-                <el-col :span="6">
+            <el-row :gutter="10">
+                <el-col :span="4" :offset="4">
                     <el-card>
                         <el-avatar :size="150" :src="user.avatarURL"></el-avatar>
                         <div v-if="!editProfile">
@@ -16,7 +16,7 @@
                                 <el-descriptions-item label="用户名">{{ user.username }}</el-descriptions-item>
                                 <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
                                 <el-descriptions-item label="居住地">广州市</el-descriptions-item>
-                                <el-descriptions-item label="性别">{{ user.gender }}</el-descriptions-item>
+                                <el-descriptions-item label="性别">{{ gender }}</el-descriptions-item>
                             </el-descriptions>
                             <el-button type="primary" @click="toggleEditProfile">修改个人信息</el-button>
                         </div>
@@ -33,10 +33,10 @@
                                     <el-input v-model="profileForm.locale"></el-input>
                                 </el-form-item>
                                 <el-form-item label="性别">
-                                    <el-radio-group v-model="profileForm.resource">
-                                        <el-radio label="女"></el-radio>
-                                        <el-radio label="男"></el-radio>
-                                        <el-radio label="保密"></el-radio>
+                                    <el-radio-group v-model="profileForm.gender" size="mini">
+                                        <el-radio-button label="女"></el-radio-button>
+                                        <el-radio-button label="男"></el-radio-button>
+                                        <el-radio-button label="保密"></el-radio-button>
                                     </el-radio-group>
                                 </el-form-item>
                             </el-form>
@@ -45,11 +45,11 @@
                         </div>
                     </el-card>
                 </el-col>
-                <el-col :span="16">
+                <el-col :span="12">
                     <el-card>
                         <el-tabs v-model="activeName">
                             <el-tab-pane label="我的贴子" name="first">
-                                <el-card v-for="post in posts" :key="id">{{post.title}}</el-card>
+                                <el-card v-for="post in posts" :key="id">{{ post.title }}</el-card>
                             </el-tab-pane>
                             <el-tab-pane label="其他" name="second">其他</el-tab-pane>
                             <el-tab-pane label="其他" name="third">其他</el-tab-pane>
@@ -66,14 +66,16 @@
 import Post from "@/components/Post.vue"
 export default {
     name: 'My',
-    components: {Post},
+    components: { Post },
     data() {
         return {
             user: {
                 avatarURL: ''
             },
             editProfile: false,
-            profileForm: {},
+            profileForm: {
+                gender: '',
+            },
             activeName: "first",
             posts: [
                 {
@@ -101,6 +103,17 @@ export default {
     methods: {
         toggleEditProfile() {
             this.editProfile = !this.editProfile;
+        }
+    },
+    computed: {
+        gender() {
+            if (this.user.gender === 0) {
+                return '女'
+            } else if (this.user.gender === 1) {
+                return '男'
+            } else {
+                return '保密'
+            }
         }
     }
 }
