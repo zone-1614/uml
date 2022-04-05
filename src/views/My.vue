@@ -41,7 +41,7 @@
                                 </el-form-item>
                             </el-form>
                             <el-button type="primary" @click="toggleEditProfile">保存</el-button>
-                            <el-button type="primary" @click="toggleEditProfile">取消</el-button>
+                            <el-button @click="toggleEditProfile">取消</el-button>
                         </div>
                     </el-card>
                 </el-col>

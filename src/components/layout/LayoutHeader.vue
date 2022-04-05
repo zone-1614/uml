@@ -8,9 +8,17 @@
             </el-link>
         </div>
 
+        <!-- 热门 -->
         <div class="header-left">
             <el-link type="primary" href="/hot">
                 <i class="el-icon-sunny">热门</i>
+            </el-link>
+        </div>
+
+        <!-- 资源 -->
+        <div class="header-left">
+            <el-link type="primary" href="/resource">
+                <i class="el-icon-folder-opened">资源</i>
             </el-link>
         </div>
 
