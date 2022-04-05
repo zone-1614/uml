@@ -1,8 +1,10 @@
 <template>
   <div class="home">
-    <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in carousels" :key="item">
-        <img :src="item" />
+    <el-carousel indicator-position="outside" trigger="click">
+      <el-carousel-item v-for="item in carousels.length" :key="item">
+        <router-link :to="`/post/admin/${item}`">
+          <img :src="carousels[item-1]"/>
+        </router-link>
       </el-carousel-item>
     </el-carousel>
     <div v-for="post in posts" :key="post.id">
