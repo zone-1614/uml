@@ -7,9 +7,9 @@
       <el-main>
         <LayoutBody></LayoutBody>
       </el-main>
-      <el-footer>
+      <!-- <el-footer>
         <LayoutFooter></LayoutFooter>
-      </el-footer>
+      </el-footer> -->
     </el-container>
   </div>
 </template>

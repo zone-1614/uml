@@ -3,13 +3,13 @@
         <i class="el-icon-eleme header-left">UML小组作业</i>
         <!-- 左边的 首页 热门 等等 -->
         <div class="header-left">
-            <el-link type="primary" href="home">
+            <el-link type="primary" href="/home">
                 <i class="el-icon-s-home">首页</i>
             </el-link>
         </div>
 
         <div class="header-left">
-            <el-link type="primary" href="hot">
+            <el-link type="primary" href="/hot">
                 <i class="el-icon-sunny">热门</i>
             </el-link>
         </div>
@@ -24,8 +24,8 @@
             <el-popover 
                 placement="bottom"
                 trigger="hover">
-                <div><el-link href="my">我的</el-link></div>
-                <div><el-link href="">退出登录</el-link></div>
+                <div><el-link href="/my">我的</el-link></div>
+                <div><el-link href="/logout">退出登录</el-link></div>
                 <el-avatar slot="reference" :src="$store.state.user.avatarURL" :size="40"></el-avatar>
             </el-popover>
         </div>
@@ -63,7 +63,7 @@ export default {
         },
         // 点击右上角的消息后，跳转到消息页
         routeToMessage() {
-            this.$router.push('message')
+            this.$router.push('/message')
         },
         toggleIsLogin() {
             this.$store.commit('changeIsLogin', !this.$store.state.isLogin)
