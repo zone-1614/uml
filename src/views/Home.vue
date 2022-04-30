@@ -10,7 +10,7 @@
               </router-link>
             </el-carousel-item>
           </el-carousel>
-          <div v-for="post in posts" :key="post.id">
+          <div v-for="post, index in posts" :key="index">
             <Post :post="post"></Post>
           </div>
         </el-col>
