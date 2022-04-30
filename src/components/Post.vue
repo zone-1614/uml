@@ -12,7 +12,7 @@
                 </el-col>
                 <el-col :span="18">
                     <div class="post-title">
-                        <router-link :to="{name: 'post', params: { id: `${post.id}` }}">{{ post.title }}</router-link>
+                        <router-link :to="{ name: 'post', params: { id: `${post.id}` }}">{{ post.title }}</router-link>
                     </div>
 
                     <div class="post-content">{{ summary }}</div>
