@@ -1,14 +1,18 @@
 <template>
     <div class="post">
-        <el-card @click="clickPost">
+        <el-card @click.native="clickPost" >
             <el-row :gutter="20">
                 <el-col :span="2">
-                    <el-avatar :src="post.avatarURL" :size="50"></el-avatar>
-                    <div>{{ post.user }}</div>
+                    <el-popover placement="top-start" width="300" trigger="hover">
+                        <FloatingDetail :user='post.user'/>
+                        <el-avatar slot="reference" :src="post.user.avatar" :size="50"></el-avatar>
+                        <div slot="reference">{{ post.user.nickname }}</div>
+                    </el-popover>
+                    
                 </el-col>
                 <el-col :span="18">
                     <div class="post-title">
-                        <router-link :to="`/post/${post.id}`">{{ post.title }}</router-link>
+                        <router-link :to="{name: 'post', params: { id: `${post.id}` }}">{{ post.title }}</router-link>
                     </div>
 
                     <div class="post-content">{{ summary }}</div>
@@ -17,7 +21,7 @@
                 <el-col :span="4">
                     <div class="post-time">
                         <i class="el-icon-time"></i>
-                        {{ post.time }}
+                        {{ post.createTime }}
                     </div>
                 </el-col>
             </el-row>
@@ -26,22 +30,25 @@
 </template>
 
 <script>
+import FloatingDetail from "./FloatingDetail.vue";
 export default {
     name: "Post",
     props: ["post"],
+    components: { FloatingDetail },
     methods: {
         clickPost() {
-            this.$route.push({
+            this.$router.push({
                 name: "post",
                 params: { id: this.post.id }
-            })
+            });
         },
     },
     computed: {
         summary() {
             return this.post.content.substr(0, 100) + "......";
         }
-    }
+    },
+    components: { FloatingDetail }
 }
 </script>
 
