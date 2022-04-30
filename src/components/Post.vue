@@ -3,7 +3,7 @@
         <el-card @click.native="clickPost" >
             <el-row :gutter="20">
                 <el-col :span="2">
-                    <el-popover placement="top-start" width="300" trigger="hover">
+                    <el-popover placement="top-start" width="350" trigger="hover">
                         <FloatingDetail :user='post.user'/>
                         <el-avatar slot="reference" :src="post.user.avatar" :size="50"></el-avatar>
                         <div slot="reference">{{ post.user.nickname }}</div>
