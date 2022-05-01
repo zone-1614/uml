@@ -1,6 +1,7 @@
 <template>
     <div class="post">
-        <el-card @click.native="clickPost" >
+        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->  
+        <el-card >
             <el-row :gutter="20">
                 <el-col :span="2">
                     <el-popover placement="top-start" width="350" trigger="hover">
