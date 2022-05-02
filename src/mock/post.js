@@ -8,8 +8,10 @@ export default {
                 user: {
                     id: 1,
                     nickname: "mock user",
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/Snipaste_2022-03-29_15-05-56.png",
-                    gender: 0
+                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502204637.png",
+                    gender: 0,
+                    like: 23,
+                    postNumber: 15
                 },
                 content: "哇哇哇哇哇哇哇哇哇哇哇哇阿萨大飒飒的阿萨大嗄是",
                 createTime: "2022-4-1",
@@ -26,6 +28,8 @@ export default {
                   id: 2,
                   gender: 0,
                   avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202141.png",
+                  like: 21,
+                  postNumber: 6
                 },
                 createTime: "2022-3-31",
                 content: "",
@@ -41,6 +45,8 @@ export default {
                   id: 2,
                   gender: 0,
                   avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png",
+                  like: 8,
+                  postNumber: 1
                 },
                 createTime: "2022-4-1",
                 content: "asdasdsadasd",

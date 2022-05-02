@@ -11,7 +11,7 @@ export default new Vuex.Store({
     // 当前登录的用户
     user: {
       nickname: '芜湖起飞',
-      avatar: 'https://raw.githubusercontent.com/zone-1614/pic/main/img/Snipaste_2022-03-29_15-05-56.png',
+      avatar: 'https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502204637.png',
       gender: 0, // 0 女  1 男
     },
     // 注册的用户
