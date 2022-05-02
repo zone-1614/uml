@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // axios配置
-axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.baseURL = "http://localhost:8080/api";
 
 export default {
     userLogin: (username, password) => {
@@ -14,6 +14,18 @@ export default {
         return axios.get(
             "url",
             { id }
+        )
+    },
+    // 主页的post
+    getPosts: () => {
+        return axios.get(
+            "posts"
+        )
+    },
+    // 主页的轮播图
+    getCarousels: () => {
+        return axios.get(
+            "carousels"
         )
     }
 }
