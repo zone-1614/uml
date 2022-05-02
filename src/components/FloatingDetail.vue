@@ -5,7 +5,7 @@
                 <el-avatar :src="user.avatar" :size="100"></el-avatar>
             </el-col>
             <el-col :span="16">
-                <el-descriptions :title="user.nickname" :column="1" :size="mini">
+                <el-descriptions :title="user.nickname" :column="1" size="mini">
                     <el-descriptions-item label="被点赞">{{user.like}}</el-descriptions-item>
                     <el-descriptions-item label="发帖数">{{user.postNumber}}</el-descriptions-item>
                 </el-descriptions>

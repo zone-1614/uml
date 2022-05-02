@@ -7,7 +7,13 @@ export default {
     userLogin: (username, password) => {
         return axios.post(
             "url",
-            {username, password}
+            { username, password }
         )
     },
+    getPostDetailByPostId: (id) => {
+        return axios.get(
+            "url",
+            { id }
+        )
+    }
 }
