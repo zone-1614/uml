@@ -22,11 +22,11 @@
             </el-link>
         </div>
 
-        <div class="header-right">
+        <!-- <div class="header-right">
             <el-button type="primary" @click="toggleIsLogin">
                 点击切换isLogin(测试按钮)
             </el-button>
-        </div>
+        </div> -->
 
         <!-- 右边的 头像 / 注册登录 -->
         <div v-if="$store.state.isLogin" class="header-right">

@@ -7,7 +7,7 @@ Mock.setup({
     timeout: '300-600'
 })
 var baseURL = "http://localhost:8080/api/"
-Mock.mock(baseURL + 'user/login', 'get', user.login)
+Mock.mock(baseURL + 'user/login', 'post', user.login)
 Mock.mock(baseURL + 'posts', 'get', post.getPost)
 Mock.mock(baseURL + 'carousels', 'get', carousels.getCarousels)
 // let configArray = [];

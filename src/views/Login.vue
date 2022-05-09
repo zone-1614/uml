@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import api from "../api"
+
 export default {
     name: "Login",
     data() {
@@ -96,7 +98,11 @@ export default {
     },
     methods: {
         onLoginClick() {
-            console.log("login")
+            var vue = this;
+            this.$store.commit('login', {
+                nickname: vue.loginForm.username,
+                password: vue.loginForm.password
+            })
         },
         onRegisterClick() {
             if (this.registerForm.password !== this.registerForm.againPassword) {

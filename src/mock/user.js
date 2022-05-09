@@ -1,10 +1,10 @@
 import Mock from 'mockjs'
 
 export default {
-    login: config => {
+    login: (username, password) => {
         return {
             "nickname": "mock user",
-            "avatar": "https://raw.githubusercontent.com/zone-1614/pic/main/img/Snipaste_2022-03-29_15-05-56.png",
+            "avatar": "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502204637.png",
             "gender": 0
         }
     }

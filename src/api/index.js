@@ -6,7 +6,7 @@ axios.defaults.baseURL = "http://localhost:8080/api";
 export default {
     userLogin: (username, password) => {
         return axios.post(
-            "url",
+            "user/login",
             { username, password }
         )
     },

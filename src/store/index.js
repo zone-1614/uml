@@ -10,8 +10,8 @@ export default new Vuex.Store({
     isLogin: false, //是否登录，用来判断右上角显示登陆注册 / 头像
     // 当前登录的用户
     user: {
-      nickname: '芜湖起飞',
-      avatar: 'https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502204637.png',
+      nickname: '',
+      avatar: '',
       gender: 0, // 0 女  1 男
     },
     // 注册的用户
@@ -25,9 +25,12 @@ export default new Vuex.Store({
     changeIsLogin(state, isLogin) {
       state.isLogin = isLogin;
     },
-    login(state, user) {
-      state.isLogin = true;
-      state.user = user;
+    login(state, nickname, password) {
+      api.userLogin(nickname, password).then(({data}) => {
+        state.isLogin = true;
+        state.user = data;
+        console.log(data)
+      })
     },
     logout(state) {
       state.isLogin = false;
@@ -36,9 +39,11 @@ export default new Vuex.Store({
   },
   actions: {
     login(state, nickname, password) {
-      setTimeout(() => {
-        api.userLogin(nickname, password)
-      }, 2000)
+      api.userLogin(nickname, password).then(({user}) => {
+        state.isLogin = true;
+        state.user = user;
+        console.log(user)
+      })
     }
   },
   modules: {
