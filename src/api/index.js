@@ -6,6 +6,9 @@ axios.defaults.baseURL = "http://localhost:8080/api";
 
 export default {
     user,
+    createPost: () => {
+
+    },
     getPostDetailByPostId: (id) => {
         return axios.get(
             "url",

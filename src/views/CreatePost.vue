@@ -52,7 +52,7 @@
                                 <el-button v-else class="new-tag-button" size="small" @click="showInput">+ New Tag</el-button>
                             </el-col>
                             <el-col :offset="4" :span="4">
-                                <el-button type="primary">发表</el-button>
+                                <el-button type="primary" @click="createPost">发表</el-button>
                             </el-col>
                         </el-row>
                     </el-card>
@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import api from '../api';
+
 export default {
     name: "CreatePost",
     data() {
@@ -91,13 +93,16 @@ export default {
             this.tags.splice(this.tags.indexOf(tag), 1)
         },
         showInput() {
+            // 显示tag 输入框
             this.inputVisible = true;
             this.$nextTick(_ => {
                 this.$refs.saveTagInput.$refs.input.focus();
             });
         },
         handleInputConfirm() {
+            // 按enter 或者点击输入框外面，完成tag输入
             let inputValue = this.inputValue;
+            // tag 不能多余 5个
             if (this.tags.length >= 5) {
                 this.$message.error('最多添加5个标签')
             } else if (inputValue) {
@@ -105,6 +110,15 @@ export default {
             }
             this.inputVisible = false;
             this.inputValue = '';
+        },
+        createPost() {
+            // 创建 post
+            if (this.newPost.content === '') {
+                this.$message.error('内容不能为空')
+            } else if (this.newPost.title === '') {
+                this.$message.error('标题不能为空')
+            }
+            api.createPost()
         }
     }
 }
