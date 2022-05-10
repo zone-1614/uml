@@ -5,7 +5,11 @@
                 <el-tabs v-model="loginOrRegister">
                     <!-- 登录 -->
                     <el-tab-pane label="登录" name="login">
-                        <el-form ref="loginForm" :model="loginForm" label-width="80px">
+                        <el-form
+                            ref="loginForm"
+                            :model="loginForm"
+                            label-width="80px"
+                        >
                             <el-form-item label="用户名">
                                 <el-input
                                     v-model="loginForm.nickname"
@@ -21,14 +25,20 @@
                                 ></el-input>
                             </el-form-item>
                             <el-form-item>
-                                <el-button type="primary" @click="onLoginClick">登录</el-button>
+                                <el-button type="primary" @click="onLoginClick"
+                                    >登录</el-button
+                                >
                             </el-form-item>
                         </el-form>
                     </el-tab-pane>
 
                     <!-- 注册 -->
                     <el-tab-pane label="注册" name="register">
-                        <el-form ref="registerForm" :model="registerForm" label-width="80px">
+                        <el-form
+                            ref="registerForm"
+                            :model="registerForm"
+                            label-width="80px"
+                        >
                             <el-form-item label="用户名">
                                 <el-input
                                     v-model="registerForm.nickname"
@@ -49,7 +59,11 @@
                                     placeholder="请输入密码"
                                     show-password
                                 ></el-input>
-                                <el-alert v-if="alertShow" title="两次输入的密码不一致" type="error"></el-alert>
+                                <el-alert
+                                    v-if="alertShow"
+                                    title="两次输入的密码不一致"
+                                    type="error"
+                                ></el-alert>
                             </el-form-item>
                             <el-form-item label="性别">
                                 <el-radio-group v-model="registerForm.gender">
@@ -59,12 +73,17 @@
                                 </el-radio-group>
                             </el-form-item>
                             <el-form-item>
-                                <el-button type="primary" @click="onCheckRegisterForm">检查</el-button>
+                                <el-button
+                                    type="primary"
+                                    @click="onCheckRegisterForm"
+                                    >检查</el-button
+                                >
                                 <el-button
                                     type="primary"
                                     @click="onRegisterClick"
                                     :disabled="registerDisabled"
-                                >注册</el-button>
+                                    >注册</el-button
+                                >
                             </el-form-item>
                         </el-form>
                     </el-tab-pane>
@@ -75,7 +94,7 @@
 </template>
 
 <script>
-import api from "../api"
+import api from "../api";
 
 export default {
     name: "Login",
@@ -84,56 +103,59 @@ export default {
             loginOrRegister: "login",
             loginForm: {
                 nickname: "",
-                password: ""
+                password: "",
             },
             registerForm: {
                 nickname: "",
                 password: "",
                 againPassword: "",
-                gender: 2
+                gender: 2,
             },
             alertShow: false,
             registerDisabled: true,
-        }
+        };
     },
     methods: {
         onLoginClick() {
             var vue = this;
-            api.user.login(this.loginForm)
-            .then(data => {
-                if (data.status === 200) {
-                    console.log(data.data.res)
-                    vue.$store.commit('login', data.data.res)
-                    //vue.$router.push('/home')
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            });
+            api.user
+                .login(this.loginForm)
+                .then((data) => {
+                    if (data.status === 200) {
+                        console.log(data.data.res);
+                        vue.$store.commit("login", data.data.res);
+                        //vue.$router.push('/home')
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         },
         onRegisterClick() {
-            if (this.registerForm.password !== this.registerForm.againPassword) {
-                this.alertShow = true
-                return
+            if (
+                this.registerForm.password !== this.registerForm.againPassword
+            ) {
+                this.alertShow = true;
+                return;
             }
             var vue = this;
-            api.user.register(this.registerForm)
-            .then(data => {
-                if (data.status === 200) {
-                    vue.$store.commit('login', data.data.res)
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
+            api.user
+                .register(this.registerForm)
+                .then((data) => {
+                    if (data.status === 200) {
+                        vue.$store.commit("login", data.data.res);
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         },
         onCheckRegisterForm() {
             // 检查
-            this.registerDisabled = false
-        }
-    }
-}
+            this.registerDisabled = false;
+        },
+    },
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
