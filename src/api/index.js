@@ -15,13 +15,13 @@ export default {
     // 主页的post
     getPosts: () => {
         return axios.get(
-            "posts"
+            "post/posts/10"
         )
     },
     // 主页的轮播图
     getCarousels: () => {
         return axios.get(
-            "carousels"
+            "post/carousels"
         )
     }
 }
