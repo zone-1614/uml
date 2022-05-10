@@ -99,10 +99,12 @@ export default {
     methods: {
         onLoginClick() {
             var vue = this;
-            this.$store.commit('login', {
-                nickname: vue.loginForm.username,
-                password: vue.loginForm.password
-            })
+            api.userLogin(this.loginForm.username, this.loginForm.password).then(data => {
+                if (data.status === 200) {
+                    vue.$store.commit('login', data.data)
+                    vue.$router.push('/home')
+                }
+            });
         },
         onRegisterClick() {
             if (this.registerForm.password !== this.registerForm.againPassword) {
