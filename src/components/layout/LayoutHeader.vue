@@ -30,12 +30,14 @@
 
         <!-- 右边的 头像 / 注册登录 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <el-popover 
-                placement="bottom"
-                trigger="hover">
+            <el-popover placement="bottom" trigger="hover">
                 <div><el-link href="/my">我的</el-link></div>
                 <div><el-link href="/logout">退出登录</el-link></div>
-                <el-avatar slot="reference" :src="$store.state.user.avatar" :size="40"></el-avatar>
+                <el-avatar
+                    slot="reference"
+                    :src="$store.state.user.avatar"
+                    :size="40"
+                ></el-avatar>
             </el-popover>
         </div>
         <div v-else class="header-right">
@@ -46,16 +48,21 @@
 
         <!-- 消息 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <el-button @click="routeToCreatePost" type="primary">创建帖子</el-button>
+            <el-button @click="routeToCreatePost" type="primary"
+                >创建帖子</el-button
+            >
         </div>
-        
+
         <!-- 消息 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <el-badge :max="99" :value="messageNumber" :hidden="messageNumber==0" >
+            <el-badge
+                :max="99"
+                :value="messageNumber"
+                :hidden="messageNumber == 0"
+            >
                 <el-button @click="routeToMessage">消息</el-button>
             </el-badge>
         </div>
-
     </div>
 </template>
 
@@ -65,29 +72,27 @@ export default {
     data() {
         return {
             messageNumber: 15, // 右上角消息数量
-        }
+        };
     },
-    computed: {
-    },
+    computed: {},
     methods: {
         // 点击左上角的 注册登录 按钮之后，跳转路由
         routeToLoginOrRegister() {
-            this.$router.push('login')
+            this.$router.push("login");
         },
         // 点击右上角的消息后，跳转到消息页
         routeToMessage() {
-            this.$router.push('/message')
+            this.$router.push("/message");
         },
         // 点击创建帖子
         routeToCreatePost() {
-            this.$router.push('/create')
+            this.$router.push("/create");
         },
         toggleIsLogin() {
-            this.$store.commit('changeIsLogin', !this.$store.state.isLogin)
+            this.$store.commit("changeIsLogin", !this.$store.state.isLogin);
         },
-        
-    }
-}
+    },
+};
 </script>
 
 <style scoped>
