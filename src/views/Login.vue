@@ -8,7 +8,7 @@
                         <el-form ref="loginForm" :model="loginForm" label-width="80px">
                             <el-form-item label="用户名">
                                 <el-input
-                                    v-model="loginForm.username"
+                                    v-model="loginForm.nickname"
                                     placeholder="请输入用户名"
                                     clearable
                                 ></el-input>
@@ -31,7 +31,7 @@
                         <el-form ref="registerForm" :model="registerForm" label-width="80px">
                             <el-form-item label="用户名">
                                 <el-input
-                                    v-model="registerForm.username"
+                                    v-model="registerForm.nickname"
                                     placeholder="请输入用户名"
                                     clearable
                                 ></el-input>
@@ -83,11 +83,11 @@ export default {
         return {
             loginOrRegister: "login",
             loginForm: {
-                username: "",
+                nickname: "",
                 password: ""
             },
             registerForm: {
-                username: "",
+                nickname: "",
                 password: "",
                 againPassword: "",
                 gender: 2
@@ -99,11 +99,16 @@ export default {
     methods: {
         onLoginClick() {
             var vue = this;
-            api.userLogin(this.loginForm.username, this.loginForm.password).then(data => {
+            api.user.login(this.loginForm)
+            .then(data => {
                 if (data.status === 200) {
-                    vue.$store.commit('login', data.data)
-                    vue.$router.push('/home')
+                    console.log(data.data.res)
+                    vue.$store.commit('login', data.data.res)
+                    //vue.$router.push('/home')
                 }
+            })
+            .catch(err => {
+                console.log(err)
             });
         },
         onRegisterClick() {
@@ -111,7 +116,16 @@ export default {
                 this.alertShow = true
                 return
             }
-            console.log("register")
+            var vue = this;
+            api.user.register(this.registerForm)
+            .then(data => {
+                if (data.status === 200) {
+                    vue.$store.commit('login', data.data.res)
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
         },
         onCheckRegisterForm() {
             // 检查
