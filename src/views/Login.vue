@@ -124,7 +124,7 @@ export default {
                     if (data.status === 200) {
                         console.log(data.data.res);
                         vue.$store.commit("login", data.data.res);
-                        //vue.$router.push('/home')
+                        vue.$router.push('/home');  // 登陆成功跳转首页
                     }
                 })
                 .catch((err) => {
@@ -144,6 +144,7 @@ export default {
                 .then((data) => {
                     if (data.status === 200) {
                         vue.$store.commit("login", data.data.res);
+                        vue.$router.push('/home');  // 登陆成功跳转首页
                     }
                 })
                 .catch((err) => {
