@@ -10,3 +10,4 @@ var baseURL = "http://localhost:8080/api/"
 //Mock.mock(baseURL + 'user/login', 'post', user.login)
 Mock.mock(baseURL + 'posts', 'get', post.getPost)
 Mock.mock(baseURL + 'carousels', 'get', carousels.getCarousels)
+Mock.mock(baseURL + 'post/1', 'get', post.postDetail)

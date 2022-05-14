@@ -3,11 +3,7 @@
         <el-main>
             <el-row>
                 <el-col :span="4">
-                    <el-popover placement="top-start" width="350" trigger="hover">
-                        <FloatingDetail :user='post.user'/>
-                        <el-avatar slot="reference" :src="post.user.avatar" :size="50"></el-avatar>
-                        <div slot="reference">{{ post.user.nickname }}</div>
-                    </el-popover>
+                    <el-avatar :src="user.avatar" :size="100"></el-avatar>
                 </el-col>
             </el-row>
         </el-main>
@@ -20,11 +16,23 @@ export default {
     name: "PostDetail",
     created() {
         var params = this.$route.params;
-        this.post = api.getPostDetailByPostId(params.id)
+        api.post.getPostDetailByPostId(params.id)
+        .then((data) => {
+            this.post = data.data.res;
+            this.user = {
+                nickname: 'll',
+                avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502204637.png"
+            }
+            console.log(this.post)
+        })
     },
     data() {
         return {
             post: {},
+            user: {
+                nickname: '',
+                avatar: ''
+            }
         }
     }
 
