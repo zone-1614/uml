@@ -34,6 +34,11 @@
                                 }}</el-descriptions-item>
                             </el-descriptions>
                         </el-card>
+                        <el-card style="margin-top: 20px;">
+                            <el-button type="primary" @click="routeToChatRoom">
+                                发送信息
+                            </el-button>
+                        </el-card>
                     </el-col>
                     <el-col :span="12">
                         <el-card>
@@ -100,6 +105,11 @@ export default {
             } else {
                 return '保密'
             }
+        }
+    },
+    methods: {
+        routeToChatRoom() {
+            console.log("route to chat room")
         }
     }
 };
