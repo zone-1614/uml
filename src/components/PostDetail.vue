@@ -29,6 +29,9 @@ export default {
             }
             console.log(this.post)
         })
+        .catch(err => {
+            console.log(err)
+        })
     },
     data() {
         return {

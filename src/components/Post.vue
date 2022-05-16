@@ -1,23 +1,41 @@
 <template>
     <div class="post">
-        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->  
-        <el-card >
+        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->
+        <el-card>
             <el-row :gutter="20">
                 <el-col :span="2">
                     <!-- 鼠标悬浮的详细信息 -->
-                    <el-popover placement="top-start" width="350" trigger="hover">
-                        <FloatingDetail :username='post.nickname' :avatar='post.avatar' :like="post.like" :postNumber="20" />
-                        <el-avatar slot="reference" :src="post.avatar" :size="50" @click.native="routeToUserDetail"></el-avatar>
+                    <el-popover
+                        placement="top-start"
+                        width="350"
+                        trigger="hover"
+                    >
+                        <FloatingDetail
+                            :username="post.nickname"
+                            :avatar="post.avatar"
+                            :like="post.like"
+                            :postNumber="20"
+                        />
+                        <el-avatar
+                            slot="reference"
+                            :src="post.avatar"
+                            :size="50"
+                            @click.native="routeToUserDetail"
+                        ></el-avatar>
                         <div slot="reference">{{ post.nickname }}</div>
                     </el-popover>
                 </el-col>
                 <el-col :span="18">
                     <div class="post-title">
-                        <router-link :to="`/post/${post.id}`">{{ post.title }}</router-link>
+                        <router-link :to="`/post/${post.id}`">{{
+                            post.title
+                        }}</router-link>
                     </div>
 
                     <div class="post-content">{{ summary }}</div>
-                    <el-tag v-for="tag in post.tag" :key="tag" class="tag">{{ tag }}</el-tag>
+                    <el-tag v-for="tag in post.tag" :key="tag" class="tag">{{
+                        tag
+                    }}</el-tag>
                 </el-col>
                 <el-col :span="4">
                     <div class="post-time">
@@ -37,35 +55,34 @@ export default {
     props: ["post"],
     components: { FloatingDetail },
     created() {
-        console.log(this.post)
+        console.log(this.post);
     },
     methods: {
         clickPost() {
             // 暂时没用
             this.$router.push({
                 name: "post",
-                params: { id: this.post.id }
+                params: { id: this.post.id },
             });
         },
         routeToUserDetail() {
-            console.log("route to user detail");
+            var userid = this.post.userid;
             this.$router.push({
-                name: 'userdetail',
-                params: { userid: this.post.userid }
-            })
-        }
+                name: "userdetail",
+                params: { userid: userid },
+            });
+            //this
+        },
     },
     computed: {
         summary() {
             return this.post.content.substr(0, 100) + "......";
-        }
+        },
     },
-    components: { FloatingDetail }
-}
+};
 </script>
 
 <style scoped>
-
 a {
     text-decoration: none;
     color: #262626;
