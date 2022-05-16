@@ -2,7 +2,7 @@
     <div>
         <el-row :gutter="20">
             <el-col :span="8">
-                <el-avatar :src="avatar" :size="100"></el-avatar>
+                <el-avatar :src="avatar" :size="100" @click.native="routeToUserDetail"></el-avatar>
             </el-col>
             <el-col :span="16">
                 <el-descriptions :title="username" :column="1" size="mini">
@@ -17,7 +17,13 @@
 <script>
 export default {
     name: "FloatingDetail",
-    props: ['username', 'avatar', 'like', 'postNumber']
+    props: ['username', 'avatar', 'like', 'postNumber'],
+    methods: {
+        routeToUserDetail() {
+            console.log("route to user detail");
+            this.$router.push('user')
+        }
+    }
 }
 </script>
 
@@ -25,5 +31,9 @@ export default {
 .floating-name {
     font-size: 24sp;
     background-color: aqua;
+}
+
+.el-avatar {
+    cursor: pointer;
 }
 </style>
