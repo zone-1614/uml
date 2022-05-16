@@ -18,6 +18,7 @@
                     </div>
                 </el-col>
             </el-row>
+            <el-backtop target=".el-main"></el-backtop>
         </el-main>
     </el-container>
 </template>
