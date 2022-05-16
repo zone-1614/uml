@@ -78,7 +78,7 @@ export default {
     methods: {
         // 点击左上角的 注册登录 按钮之后，跳转路由
         routeToLoginOrRegister() {
-            this.$router.push("login");
+            this.$router.push("/login");
         },
         // 点击右上角的消息后，跳转到消息页
         routeToMessage() {
