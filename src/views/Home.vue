@@ -32,10 +32,12 @@ export default {
     },
     created() {
         // 请求10个post
-        api.getPosts()
+        api.post.getPosts()
         .then((data) => {
-            console.log(data);
-            this.posts.push(data.data.res);
+            //console.log(data);
+            for (let i = 0; i < 10; i++) {
+                this.posts.push(data.data.res[i]);
+            }
         })
         .catch(err => {
             console.log(err);
@@ -44,6 +46,7 @@ export default {
         // 得到主页的轮播图
         api.getCarousels()
         .then((data) => {
+            //console.log(data);
             this.carousels = data.data.res;
         })
         .catch(err => {

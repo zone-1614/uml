@@ -5,9 +5,9 @@
             <el-row :gutter="20">
                 <el-col :span="2">
                     <el-popover placement="top-start" width="350" trigger="hover">
-                        <FloatingDetail :user='post.user'/>
-                        <el-avatar slot="reference" :src="post.user.avatar" :size="50"></el-avatar>
-                        <div slot="reference">{{ post.user.nickname }}</div>
+                        <FloatingDetail :username='post.nickname' :avatar='post.avatar' :like="post.like" :postNumber="20" />
+                        <el-avatar slot="reference" :src="post.avatar" :size="50"></el-avatar>
+                        <div slot="reference">{{ post.nickname }}</div>
                     </el-popover>
                     
                 </el-col>
@@ -36,6 +36,9 @@ export default {
     name: "Post",
     props: ["post"],
     components: { FloatingDetail },
+    created() {
+        console.log(this.post.avatar)
+    },
     methods: {
         clickPost() {
             this.$router.push({

@@ -43,7 +43,7 @@ export default {
   width: 100%;
 }
 .el-header {
-  background-color: #b3c0d1;
+  background-color: #b1d4f1;
   text-align: start;
 }
 .el-footer {
