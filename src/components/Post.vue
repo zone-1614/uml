@@ -126,4 +126,8 @@ a {
 .el-avatar {
     cursor: pointer;
 }
+
+.el-card {
+    border-radius: 15px;
+}
 </style>
