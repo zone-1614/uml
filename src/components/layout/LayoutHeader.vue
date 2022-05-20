@@ -1,24 +1,28 @@
 <template>
     <div class="header">
-        <i class="el-icon-eleme header-left">UML小组作业</i>
+        <div class="header-left">
+            <el-link type="primary" :underline="false" href="/home">
+                <i class="el-icon-eleme">UML小组作业</i>
+            </el-link>
+        </div>
         <!-- 左边的 首页 热门 等等 -->
         <div class="header-left">
-            <el-link type="primary" href="/home">
-                <i class="el-icon-s-home">首页</i>
+            <el-link :underline="false" href="/home">
+                首页
             </el-link>
         </div>
 
         <!-- 热门 -->
         <div class="header-left">
-            <el-link type="primary" href="/hot">
-                <i class="el-icon-sunny">热门</i>
+            <el-link :underline="false" href="/hot">
+                热门
             </el-link>
         </div>
 
         <!-- 资源 -->
         <div class="header-left">
-            <el-link type="primary" href="/resource">
-                <i class="el-icon-folder-opened">资源</i>
+            <el-link :underline="false" href="/resource">
+                资源
             </el-link>
         </div>
 
@@ -41,9 +45,9 @@
             </el-popover>
         </div>
         <div v-else class="header-right">
-            <el-button type="primary" @click="routeToLoginOrRegister">
+            <el-link :underline="false" @click="routeToLoginOrRegister">
                 注册 / 登录
-            </el-button>
+            </el-link>
         </div>
 
         <!-- 消息 -->
