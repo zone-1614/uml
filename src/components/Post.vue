@@ -26,10 +26,8 @@
                     </el-popover>
                 </el-col>
                 <el-col :span="18">
-                    <div class="post-title">
-                        <router-link :to="`/post/${post.id}`">{{
-                            post.title
-                        }}</router-link>
+                    <div class="post-title" @click="routeToPostDetail">
+                        {{ post.title }}
                     </div>
 
                     <div class="post-content">{{ summary }}</div>
@@ -58,18 +56,17 @@ export default {
         console.log(this.post);
     },
     methods: {
-        clickPost() {
+        routeToPostDetail() {
             // 暂时没用
             this.$router.push({
                 name: "post",
-                params: { id: this.post.id },
+                params: { id: this.post.postId },
             });
         },
         routeToUserDetail() {
-            var userid = this.post.userid;
             this.$router.push({
                 name: "userdetail",
-                params: { userid: userid },
+                params: { userid: this.post.userid },
             });
             //this
         },
@@ -89,6 +86,7 @@ a {
 }
 
 .post-title {
+    cursor: pointer;
     float: inline-start;
     text-align: left;
     padding: 10px;

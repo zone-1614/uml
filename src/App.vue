@@ -42,7 +42,7 @@ export default {
     width: 100%;
 }
 .el-header {
-    background-color: #b1d4f1;
+    background-color: #FFFFFF;
     text-align: start;
 }
 .el-footer {
@@ -60,7 +60,7 @@ export default {
 }
 
 .el-main {
-    background-color: #e9eef3;
+    background-color: #FFFFFF;
     color: #333;
     text-align: center;
 }

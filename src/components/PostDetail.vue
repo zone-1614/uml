@@ -19,8 +19,9 @@ import api from "@/api"
 export default {
     name: "PostDetail",
     created() {
+        console.log(this.$route.params)
         var params = this.$route.params;
-        api.post.getPostDetailByPostId(params.id)
+        api.post.getPostDetailByPostId(params['id'])
         .then((data) => {
             this.post = data.data.res;
             this.user = {
