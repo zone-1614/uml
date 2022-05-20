@@ -38,9 +38,7 @@
 
         <!-- 消息 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <!-- <el-button @click="routeToCreatePost" type="primary"
-                >创建帖子</el-button
-            > -->
+            <el-button size="mini" type="primary" @click="routeToCreatePost">创建帖子</el-button>
         </div>
 
         <!-- 消息 -->
@@ -92,7 +90,7 @@ export default {
 <style scoped>
 .header {
     padding-left: 0%;
-    padding-right: 5%;
+    padding-right: 10%;
 }
 .title {
     font-size: 25px;
