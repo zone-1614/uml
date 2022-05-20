@@ -3,21 +3,15 @@
         <el-container>
             <el-main>
                 <el-row :gutter="10">
-                    <el-col :span="4" :offset="4">
+                    <el-col :span="6" :offset="2">
                         <el-card v-animate-css="'fadeInLeft'">
                             <el-avatar
                                 :size="150"
                                 :src="user.avatar"
                             ></el-avatar>
-                            <div>
-                                <el-link :underline="false" href="/followers"
-                                    ><i class="el-icon-user"></i>关注数: 100 </el-link
-                                >&emsp;&emsp;
-                            </div>
-                            <div>
-                                <el-link :underline="false" href="/following"
-                                    ><i class="el-icon-star-off"></i>粉丝数: 20
-                                </el-link>
+                            <div class="following">
+                                <el-link :underline="false" href="/followers"><i class="el-icon-user"></i>关注数: 100 </el-link>&emsp;&emsp;
+                                <el-link :underline="false" href="/following"><i class="el-icon-star-off"></i>粉丝数: 20</el-link>
                             </div>
                             <el-descriptions :column="1" title="个人信息">
                                 <el-descriptions-item label="用户名">{{
@@ -40,7 +34,7 @@
                             </el-button>
                         </el-card> -->
                     </el-col>
-                    <el-col :span="12" v-animate-css="'fadeInDown'">
+                    <el-col :span="14" v-animate-css="'fadeInDown'">
                         <el-card>
                             <div>详细</div>
                             <div>详细</div>
@@ -122,5 +116,8 @@ export default {
 .el-tabs {
     margin-left: 15px;
     margin-right: 15px;
+}
+.following {
+    margin: 10px;
 }
 </style>

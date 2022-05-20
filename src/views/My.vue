@@ -2,7 +2,7 @@
     <el-container>
         <el-main>
             <el-row :gutter="10">
-                <el-col :span="4" :offset="4">
+                <el-col :span="6" :offset="2">
                     <el-card v-animate-css="'fadeInLeft'">
                         <el-avatar :size="150" :src="user.avatar"></el-avatar>
                         <div v-if="!editProfile">
@@ -45,7 +45,7 @@
                         </div>
                     </el-card>
                 </el-col>
-                <el-col :span="12">
+                <el-col :span="14">
                     <el-card v-animate-css="'fadeInDown'">
                         <el-tabs v-model="activeName">
                             <el-tab-pane label="我的贴子" name="first">
