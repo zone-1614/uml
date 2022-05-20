@@ -2,11 +2,16 @@
     <div>
         <el-card>聊天室</el-card>
         <el-card class="chatroom">
-            <el-tabs tab-position="left" style="margin-top: 10px;">
-                <el-tab-pane v-for="(u, index) in chatUsers" :key="index" :label="u">
+            <el-scrollbar style="height: 100%;">
+            <el-tabs tab-position="left" style="margin-top: 10px">
+                <el-tab-pane
+                    v-for="(u, index) in chatUsers"
+                    :key="index"
+                    :label="u">
                     <ChatWith :user="u"></ChatWith>
                 </el-tab-pane>
             </el-tabs>
+            </el-scrollbar>
         </el-card>
     </div>
 </template>
@@ -16,18 +21,57 @@ import ChatWith from "@/components/message/ChatWith.vue";
 export default {
     name: "ChatRoom",
     components: {
-        ChatWith
+        ChatWith,
     },
     data() {
         return {
             // 与你聊天的用户列表
             chatUsers: [
-                "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2",
-                "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2",
-                "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2", "用户1", "用户2"
-            ]
-        }
-    }
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+                "用户1",
+                "用户2",
+            ],
+        };
+    },
 };
 </script>
 
@@ -40,6 +84,6 @@ export default {
     margin-bottom: 20px;
 }
 .chatroom {
-    height: 80vh;
+    height: 100%;
 }
 </style>

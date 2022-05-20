@@ -5,7 +5,9 @@
                 <LayoutHeader></LayoutHeader>
             </el-header>
             <el-main>
-                <LayoutBody></LayoutBody>
+                <!-- <el-scrollbar style="height: 100%;"> -->
+                    <router-view></router-view>
+                <!-- </el-scrollbar> -->
             </el-main>
         </el-container>
     </div>
@@ -49,5 +51,4 @@ export default {
     text-align: center;
     height: 100%;
 }
-
 </style>
