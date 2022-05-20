@@ -7,9 +7,6 @@
             <el-main>
                 <LayoutBody></LayoutBody>
             </el-main>
-            <!-- <el-footer>
-        <LayoutFooter></LayoutFooter>
-      </el-footer> -->
         </el-container>
     </div>
 </template>
@@ -45,23 +42,11 @@ export default {
     background-color: #FFFFFF;
     text-align: start;
 }
-.el-footer {
-    background-color: #b3c0d1;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
-}
-
-.el-aside {
-    background-color: #d3dce6;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-}
 
 .el-main {
-    background-color: #FFFFFF;
+    background-color: #f7f8fa;
     color: #333;
     text-align: center;
 }
+
 </style>

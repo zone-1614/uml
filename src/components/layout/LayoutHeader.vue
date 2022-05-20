@@ -99,6 +99,7 @@ export default {
 .header {
     padding-left: 10%;
     padding-right: 10%;
+    border: 5px red;
 }
 .el-link {
     font-size: 20px;
