@@ -2,9 +2,9 @@
     <div>
         <el-card>聊天室</el-card>
         <el-card>
-            <el-tabs type="card" tab-position="left" style="margin-top: 10px;">
+            <el-tabs tab-position="left" style="margin-top: 10px;">
                 <el-tab-pane v-for="(u, index) in chatUsers" :key="index" :label="u">
-                    {{u}}
+                    <ChatWith :user="u"></ChatWith>
                 </el-tab-pane>
             </el-tabs>
         </el-card>
@@ -12,8 +12,12 @@
 </template>
 
 <script>
+import ChatWith from "@/components/message/ChatWith.vue";
 export default {
     name: "ChatRoom",
+    components: {
+        ChatWith
+    },
     data() {
         return {
             // 与你聊天的用户列表
