@@ -3,7 +3,7 @@
         <el-main>
             <el-row type="flex" justify="center">
                 <el-col :span="6">
-                        <el-card v-show="showCard" v-animate-css="'fadeInDown'">
+                        <el-card v-animate-css="'fadeInDown'">
                             <i class="el-icon-eleme icon">校园助手</i>
                             <el-tabs v-model="loginOrRegister">
                                 <!-- 登录 -->
@@ -130,8 +130,7 @@ export default {
                 gender: 2,
             },
             alertShow: false,
-            registerDisabled: true,
-            showCard: false
+            registerDisabled: true
         };
     },
     created() {
