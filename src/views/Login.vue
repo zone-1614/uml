@@ -38,7 +38,8 @@
                                 </el-tab-pane>
 
                                 <!-- 注册 -->
-                                <el-tab-pane label="注册" name="register">
+                                <el-tab-pane label="注册" name="register" 
+                                        >
                                     <el-form
                                         ref="registerForm"
                                         :model="registerForm"

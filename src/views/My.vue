@@ -3,7 +3,7 @@
         <el-main>
             <el-row :gutter="10">
                 <el-col :span="4" :offset="4">
-                    <el-card>
+                    <el-card v-animate-css="'fadeInLeft'">
                         <el-avatar :size="150" :src="user.avatar"></el-avatar>
                         <div v-if="!editProfile">
                             <span>
@@ -46,7 +46,7 @@
                     </el-card>
                 </el-col>
                 <el-col :span="12">
-                    <el-card>
+                    <el-card v-animate-css="'fadeInDown'">
                         <el-tabs v-model="activeName">
                             <el-tab-pane label="我的贴子" name="first">
                                 <el-card class="my-post" v-for="post in posts" :key="id">{{ post.title }}</el-card>
@@ -124,5 +124,12 @@ export default {
 }
 .my-post {
     margin-bottom: 20px;
+}
+.el-card {
+    border-radius: 15px;
+}
+.el-tabs {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 </style>

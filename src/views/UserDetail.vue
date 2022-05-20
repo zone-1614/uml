@@ -4,7 +4,7 @@
             <el-main>
                 <el-row :gutter="10">
                     <el-col :span="4" :offset="4">
-                        <el-card>
+                        <el-card v-animate-css="'fadeInLeft'">
                             <el-avatar
                                 :size="150"
                                 :src="user.avatar"
@@ -34,13 +34,13 @@
                                 }}</el-descriptions-item>
                             </el-descriptions>
                         </el-card>
-                        <el-card style="margin-top: 20px;">
+                        <!-- <el-card style="margin-top: 20px;">
                             <el-button type="primary" @click="routeToChatRoom">
                                 发送信息
                             </el-button>
-                        </el-card>
+                        </el-card> -->
                     </el-col>
-                    <el-col :span="12">
+                    <el-col :span="12" v-animate-css="'fadeInDown'">
                         <el-card>
                             <div>详细</div>
                             <div>详细</div>
@@ -118,5 +118,9 @@ export default {
 <style scoped>
 .el-card {
     border-radius: 15px;
+}
+.el-tabs {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 </style>
