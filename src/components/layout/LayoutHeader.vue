@@ -1,8 +1,8 @@
 <template>
     <div class="header">
         <div class="header-left">
-            <el-link type="primary" :underline="false" href="/home">
-                <i class="el-icon-eleme">UML小组作业</i>
+            <el-link type="primary"  :underline="false" href="/home">
+                <i class="el-icon-eleme title" >UML小组作业</i>
             </el-link>
         </div>
         <!-- 左边的 首页 热门 等等 -->
@@ -26,12 +26,6 @@
             </el-link>
         </div>
 
-        <!-- <div class="header-right">
-            <el-button type="primary" @click="toggleIsLogin">
-                点击切换isLogin(测试按钮)
-            </el-button>
-        </div> -->
-
         <!-- 右边的 头像 / 注册登录 -->
         <div v-if="$store.state.isLogin" class="header-right">
             <el-popover placement="bottom" trigger="hover">
@@ -40,7 +34,7 @@
                 <el-avatar
                     slot="reference"
                     :src="$store.state.user.avatar"
-                    :size="40"
+                    :size="30"
                 ></el-avatar>
             </el-popover>
         </div>
@@ -52,20 +46,20 @@
 
         <!-- 消息 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <el-button @click="routeToCreatePost" type="primary"
+            <!-- <el-button @click="routeToCreatePost" type="primary"
                 >创建帖子</el-button
-            >
+            > -->
         </div>
 
         <!-- 消息 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <el-badge
+            <!-- <el-badge
                 :max="99"
                 :value="messageNumber"
                 :hidden="messageNumber == 0"
             >
                 <el-button @click="routeToMessage">消息</el-button>
-            </el-badge>
+            </el-badge> -->
         </div>
     </div>
 </template>
@@ -101,22 +95,24 @@ export default {
 
 <style scoped>
 .header {
-    padding-left: 10%;
-    padding-right: 10%;
-    border: 5px red;
+    padding-left: 0%;
+    padding-right: 5%;
+}
+.title {
+    font-size: 25px;
 }
 .el-link {
-    font-size: 20px;
+    font-size: 14px;
 }
 .header-left {
     float: left;
     width: fit-content;
-    margin: 10px;
+    margin: 16px 10px 0px 10px;
     vertical-align: middle;
 }
 .header-right {
     float: right;
     width: fit-content;
-    margin: 10px;
+    margin: 16px 10px 0px 10px;
 }
 </style>
