@@ -1,7 +1,7 @@
 <template>
     <el-row>
         <el-col :span="16" :offset="4">
-            <el-card class="box-card">
+            <el-card class="box-card" v-animate-css="'fadeInDown'">
                 <div slot="header" class="clearfix">
                     <el-input v-model="newPost.title" placeholder="请输入帖子标题"></el-input>
                 </div>
