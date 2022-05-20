@@ -1,5 +1,5 @@
 <template>
-    <el-container>
+    <el-container v-animate-css="'fadeIn'">
         <el-main>
             <el-row>
                 <el-col :span="16" :offset="4">

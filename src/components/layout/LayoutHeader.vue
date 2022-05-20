@@ -28,15 +28,7 @@
 
         <!-- 右边的 头像 / 注册登录 -->
         <div v-if="$store.state.isLogin" class="header-right">
-            <el-popover placement="bottom" trigger="hover">
-                <div><el-link href="/my">我的</el-link></div>
-                <div><el-link href="/logout">退出登录</el-link></div>
-                <el-avatar
-                    slot="reference"
-                    :src="$store.state.user.avatar"
-                    :size="30"
-                ></el-avatar>
-            </el-popover>
+            <HeaderAvatar></HeaderAvatar>
         </div>
         <div v-else class="header-right">
             <el-link :underline="false" @click="routeToLoginOrRegister">
@@ -65,8 +57,12 @@
 </template>
 
 <script>
+import HeaderAvatar from './HeaderAvatar.vue'
 export default {
     name: "LayoutHeader",
+    components: {
+        HeaderAvatar
+    },
     data() {
         return {
             messageNumber: 15, // 右上角消息数量
