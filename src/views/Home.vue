@@ -1,23 +1,21 @@
 <template>
-    <el-container v-animate-css="'fadeIn'">
-        <el-main v-infinite-scroll="loadSomePosts" class="infinite-list">
-            <el-row>
-                <el-col :span="16" :offset="4" >
-                    <el-carousel indicator-position="outside" trigger="click">
-                        <el-carousel-item
-                            v-for="item in carousels.length"
-                            :key="item">
-                            <router-link :to="`/post/admin/${item}`">
-                                <img :src="carousels[item - 1]" />
-                            </router-link>
-                        </el-carousel-item>
-                    </el-carousel>
-                    <Post v-for="(post, index) in posts" class="infinite-list-item" :key="index" :post="post"></Post>
-                </el-col>
-            </el-row>
-            <el-backtop target=".el-main"></el-backtop>
-        </el-main>
-    </el-container>
+    <el-main v-animate-css="'fadeIn'" v-infinite-scroll="loadSomePosts" class="infinite-list">
+        <el-row>
+            <el-col :span="16" :offset="4" >
+                <el-carousel indicator-position="outside" trigger="click">
+                    <el-carousel-item
+                        v-for="item in carousels.length"
+                        :key="item">
+                        <router-link :to="`/post/admin/${item}`">
+                            <img :src="carousels[item - 1]" />
+                        </router-link>
+                    </el-carousel-item>
+                </el-carousel>
+                <Post v-for="(post, index) in posts" class="infinite-list-item" :key="index" :post="post"></Post>
+            </el-col>
+        </el-row>
+        <el-backtop target=".el-main"></el-backtop>
+    </el-main>
 </template>
 
 <script>

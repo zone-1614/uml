@@ -1,71 +1,67 @@
 <template>
-    <div>
-        <el-container>
-            <el-main>
-                <el-row :gutter="10">
-                    <el-col :span="6" :offset="2">
-                        <el-card v-animate-css="'fadeInLeft'">
-                            <el-avatar
-                                :size="150"
-                                :src="user.avatar"
-                            ></el-avatar>
-                            <div class="following">
-                                <el-link :underline="false" href="/followers"><i class="el-icon-user"></i>关注数: 100 </el-link>&emsp;&emsp;
-                                <el-link :underline="false" href="/following"><i class="el-icon-star-off"></i>粉丝数: 20</el-link>
-                            </div>
-                            <el-descriptions :column="1" title="个人信息">
-                                <el-descriptions-item label="用户名">{{
-                                    user.nickname
-                                }}</el-descriptions-item>
-                                <el-descriptions-item label="手机号"
-                                    >18100000000</el-descriptions-item
-                                >
-                                <el-descriptions-item label="居住地"
-                                    >广州市</el-descriptions-item
-                                >
-                                <el-descriptions-item label="性别">{{
-                                    gender
-                                }}</el-descriptions-item>
-                            </el-descriptions>
-                        </el-card>
-                        <!-- <el-card style="margin-top: 20px;">
-                            <el-button type="primary" @click="routeToChatRoom">
-                                发送信息
-                            </el-button>
-                        </el-card> -->
-                    </el-col>
-                    <el-col :span="14" v-animate-css="'fadeInDown'">
-                        <el-card>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                            <div>详细</div>
-                        </el-card>
-                    </el-col>
-                </el-row>
-            </el-main>
-        </el-container>
-    </div>
+    <el-main>
+        <el-row :gutter="10">
+            <el-col :span="6" :offset="2">
+                <el-card v-animate-css="'fadeInLeft'">
+                    <el-avatar
+                        :size="150"
+                        :src="user.avatar"
+                    ></el-avatar>
+                    <div class="following">
+                        <el-link :underline="false" href="/followers"><i class="el-icon-user"></i>关注数: 100 </el-link>&emsp;&emsp;
+                        <el-link :underline="false" href="/following"><i class="el-icon-star-off"></i>粉丝数: 20</el-link>
+                    </div>
+                    <el-descriptions :column="1" title="个人信息">
+                        <el-descriptions-item label="用户名">{{
+                            user.nickname
+                        }}</el-descriptions-item>
+                        <el-descriptions-item label="手机号"
+                            >18100000000</el-descriptions-item
+                        >
+                        <el-descriptions-item label="居住地"
+                            >广州市</el-descriptions-item
+                        >
+                        <el-descriptions-item label="性别">{{
+                            gender
+                        }}</el-descriptions-item>
+                    </el-descriptions>
+                </el-card>
+                <!-- <el-card style="margin-top: 20px;">
+                    <el-button type="primary" @click="routeToChatRoom">
+                        发送信息
+                    </el-button>
+                </el-card> -->
+            </el-col>
+            <el-col :span="14" v-animate-css="'fadeInDown'">
+                <el-card>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                    <div>详细</div>
+                </el-card>
+            </el-col>
+        </el-row>
+    </el-main>
 </template>
 
 <script>

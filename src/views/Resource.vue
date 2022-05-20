@@ -1,13 +1,11 @@
 <template>
-    <el-container>
-        <el-main>
-            <el-row>
-                <div v-for="post, index in posts" :key="index">
-                    <Post :post="post"></Post>
-                </div>
-            </el-row>
-        </el-main>
-    </el-container>
+    <el-main>
+        <el-row>
+            <div v-for="post, index in posts" :key="index">
+                <Post :post="post"></Post>
+            </div>
+        </el-row>
+    </el-main>
 </template>
 
 <script>

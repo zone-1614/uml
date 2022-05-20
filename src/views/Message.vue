@@ -1,23 +1,21 @@
 <template>
-    <el-container v-animate-css="'fadeInDown'">
-        <el-main>
-            <el-row :gutter="30">
-                <el-col :span="16" :offset="4">
-                    <el-tabs tab-position="left">
-                        <el-tab-pane label="回复我的">
-                            <ReplyMe :messages="messages"></ReplyMe>
-                        </el-tab-pane>
-                        <el-tab-pane label="系统通知">
-                            <SystemNotice :notices="notices"></SystemNotice>
-                        </el-tab-pane>
-                        <el-tab-pane label="我的消息">
-                            <ChatRoom></ChatRoom>
-                        </el-tab-pane>
-                    </el-tabs>
-                </el-col>
-            </el-row>
-        </el-main>
-    </el-container>
+    <el-main v-animate-css="'fadeInDown'">
+        <el-row :gutter="30">
+            <el-col :span="16" :offset="4">
+                <el-tabs tab-position="left">
+                    <el-tab-pane label="回复我的">
+                        <ReplyMe :messages="messages"></ReplyMe>
+                    </el-tab-pane>
+                    <el-tab-pane label="系统通知">
+                        <SystemNotice :notices="notices"></SystemNotice>
+                    </el-tab-pane>
+                    <el-tab-pane label="我的消息">
+                        <ChatRoom></ChatRoom>
+                    </el-tab-pane>
+                </el-tabs>
+            </el-col>
+        </el-row>
+    </el-main>
 </template>
 
 <script>
