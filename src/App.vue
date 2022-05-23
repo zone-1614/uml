@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="app">
-        <el-container v-loading="$store.state.loading">
+        <el-container >
             <el-header>
                 <LayoutHeader></LayoutHeader>
             </el-header>

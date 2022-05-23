@@ -2,7 +2,7 @@
     <div>
         <el-popover placement="bottom" trigger="hover">
             <div>
-                <el-link :underline="false" href="/my">我的</el-link>
+                <el-link :underline="false" @click="routeToMy">我的</el-link>
             </div>
             <div>
                 <el-link :underline="false" href="/message">消息</el-link>
@@ -22,6 +22,11 @@
 <script>
 export default {
     name: "HeaderAvatar",
+    methods: {
+        routeToMy() {
+            this.$router.push("/my")
+        }
+    }
 };
 </script>
 

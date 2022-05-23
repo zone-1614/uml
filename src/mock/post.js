@@ -16,6 +16,11 @@ export default {
     createPost: (post) => {
         posts.push(post);
         // posts[0] = post;
+    },
+    getMyPosts: () => {
+        return {
+            res: myposts
+        }
     }
 };
 
@@ -109,3 +114,35 @@ var posts = [
         content: "asdasdasdasd",
     },
 ];
+var myposts = [
+    {
+        id: 20,
+        title: "请问一下UML这门课要怎么学啊",
+        time: "2022-3-31",
+        content: "请问一下UML这门课要怎么学啊请问一下UML这门课要怎么学啊"
+    },
+    {
+        id: 30,
+        title: "收软件学院大三上的课本",
+        time: "2022-4-1",
+        content: "请问一下UML这门课要怎么学啊请问一下UML这门课要怎么学啊"
+    },
+    {
+        id: 24,
+        title: "出软件学院大二课本",
+        time: "2022-3-31",
+        content: "请问一下UML这门课要怎么学啊请问一下UML这门课要怎么学啊"
+    },
+    {
+        id: 32,
+        title: "出台灯",
+        time: "2022-4-1",
+        content: ""
+    },
+    {
+        id: 83,
+        title: "出讲座票 * 10",
+        time: "2022-4-1",
+        content: ""
+    }
+]

@@ -9,6 +9,7 @@
                         placement="top-start"
                         width="350"
                         trigger="hover"
+                        :open-delay="400"
                     >
                         <FloatingDetail
                             :nickname="post.nickname"

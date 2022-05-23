@@ -17,6 +17,9 @@ const post = {
             "post/posts/10"
         )
     },
+    getMyPosts() {
+        return axios.get("post/myposts")
+    }
 };
 
 export default post;

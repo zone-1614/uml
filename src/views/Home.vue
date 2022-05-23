@@ -28,7 +28,7 @@ export default {
         // 请求10个post
         api.post.getPosts()
         .then((data) => {
-            console.log(data);
+            //console.log(data);
             for (let i = 0; i < 10; i++) {
                 this.posts.push(data.data.res[i]);
             }
