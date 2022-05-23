@@ -39,7 +39,7 @@ export default {
         // 得到主页的轮播图
         api.getCarousels()
         .then((data) => {
-            //console.log(data);
+            console.log(data);
             this.carousels = data.data.res;
         })
         .catch(err => {

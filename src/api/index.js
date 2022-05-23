@@ -13,5 +13,11 @@ export default {
         return axios.get(
             "post/carousels"
         )
+    },
+    // 获取图片
+    getImage: (url) => {
+        return axios.get(
+            `file/image/${url}`
+        )
     }
 }
