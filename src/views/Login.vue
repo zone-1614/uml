@@ -136,7 +136,7 @@ export default {
                 if (data.status === 200) {
                     console.log(data.data.res.user);
                     vue.$store.commit("login", data.data.res.user);
-                    //vue.$router.push("/home"); // 登陆成功跳转首页
+                    vue.$router.push("/home"); // 登陆成功跳转首页
                 }
             })
             .catch((err) => {

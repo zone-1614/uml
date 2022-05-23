@@ -1,7 +1,7 @@
 <template>
     <div class="post">
         <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->
-        <el-card>
+        <el-card v-if="post">
             <el-row :gutter="20">
                 <el-col :span="2">
                     <!-- 鼠标悬浮的详细信息 -->
@@ -11,7 +11,7 @@
                         trigger="hover"
                     >
                         <FloatingDetail
-                            :username="post.nickname"
+                            :nickname="post.nickname"
                             :avatar="post.avatar"
                             :like="post.like"
                             :postNumber="post.postNumber"
@@ -22,7 +22,7 @@
                             :size="50"
                             @click.native="routeToUserDetail"
                         ></el-avatar>
-                        <div slot="reference">{{ this.post.nickname }}</div>
+                        <div slot="reference">{{ post.nickname }}</div>
                     </el-popover>
                 </el-col>
                 <el-col :span="18">
@@ -50,8 +50,19 @@
 import FloatingDetail from "./FloatingDetail.vue";
 export default {
     name: "Post",
-    props: ["post"],
     components: { FloatingDetail },
+    props: {
+        post: {
+            title: "",
+            content: "",
+            nickname: "",
+            avatar: "",
+            like: 0,
+            postNumber: 0,
+            createTime: "",
+            tag: []
+        }
+    },
     methods: {
         routeToPostDetail() {
             // 暂时没用
@@ -65,7 +76,6 @@ export default {
                 name: "userdetail",
                 params: { userid: this.post.userid },
             });
-            //this
         },
     },
     computed: {

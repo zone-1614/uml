@@ -5,7 +5,7 @@
                 <el-avatar :src="avatar" :size="100" @click.native="routeToUserDetail"></el-avatar>
             </el-col>
             <el-col :span="16">
-                <el-descriptions :title="username" :column="1" size="mini">
+                <el-descriptions :title="nickname" :column="1" size="mini">
                     <el-descriptions-item label="被点赞">{{like}}</el-descriptions-item>
                     <el-descriptions-item label="发帖数">{{postNumber}}</el-descriptions-item>
                 </el-descriptions>
@@ -17,7 +17,7 @@
 <script>
 export default {
     name: "FloatingDetail",
-    props: ['username', 'avatar', 'like', 'postNumber'],
+    props: ['nickname', 'avatar', 'like', 'postNumber'],
     methods: {
         routeToUserDetail() {
             console.log("route to user detail");
