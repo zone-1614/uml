@@ -1,5 +1,5 @@
 <template>
-    <el-row v-animate-css="'fadeIn'" class="infinite-list" v-infinite-scroll="loadSomePosts">
+    <el-row class="infinite-list" v-infinite-scroll="loadSomePosts">
         <el-col :span="16" :offset="4" >
             <el-carousel indicator-position="outside" trigger="click">
                 <el-carousel-item

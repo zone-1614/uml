@@ -19,5 +19,9 @@ export default {
         return axios.get(
             `file/image/${url}`
         )
+    },
+    upload: () => {
+        // mock 图片
+        return axios.post("file/image")
     }
 }

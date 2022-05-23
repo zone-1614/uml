@@ -1,13 +1,13 @@
 <template>
     <div class="header">
         <div class="header-left">
-            <el-link type="primary"  :underline="false" href="/home">
+            <el-link type="primary"  :underline="false" @click="routeToHome">
                 <i class="el-icon-eleme title" >UML小组作业</i>
             </el-link>
         </div>
         <!-- 左边的 首页 热门 等等 -->
         <div class="header-left">
-            <el-link :underline="false" href="/home">
+            <el-link :underline="false" @click="routeToHome">
                 首页
             </el-link>
         </div>
@@ -21,7 +21,7 @@
 
         <!-- 资源 -->
         <div class="header-left">
-            <el-link :underline="false" href="/resource">
+            <el-link :underline="false" @click="routeToResource">
                 资源
             </el-link>
         </div>
@@ -83,6 +83,12 @@ export default {
         toggleIsLogin() {
             this.$store.commit("changeIsLogin", !this.$store.state.isLogin);
         },
+        routeToHome() {
+            this.$router.push("/home");
+        },
+        routeToResource() {
+            this.$router.push('/resource');
+        }
     },
 };
 </script>

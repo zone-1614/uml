@@ -5,10 +5,10 @@
                 <el-link :underline="false" @click="routeToMy">我的</el-link>
             </div>
             <div>
-                <el-link :underline="false" href="/message">消息</el-link>
+                <el-link :underline="false" @click="routeToMessage">消息</el-link>
             </div>
             <div>
-                <el-link :underline="false" href="/logout">退出登录</el-link>
+                <el-link :underline="false" @click="logout">退出登录</el-link>
             </div>
             <el-avatar
                 slot="reference"
@@ -25,6 +25,13 @@ export default {
     methods: {
         routeToMy() {
             this.$router.push("/my")
+        },
+        routeToMessage() {
+            this.$router.push("/message")
+        },
+        logout() {
+            this.$store.commit("logout")
+            this.$router.push("/home")
         }
     }
 };

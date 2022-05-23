@@ -40,7 +40,7 @@
                             <!-- 头像 -->
                             <el-upload
                                 class="avatar-uploader"
-                                action="https://jsonplaceholder.typicode.com/posts/"
+                                action="http://localhost:8080/api/file/image"
                                 :show-file-list="false"
                                 :on-success="handleAvatarSuccess"
                                 :before-upload="beforeAvatarUpload"
@@ -49,7 +49,6 @@
                                 <img v-if="imageUrl" :src="imageUrl" class="avatar">
                                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                             </el-upload>
-                            <div v-if="imageUrl"><i class="el-icon-delete"></i></div>
                             <el-form
                                 ref="registerForm"
                                 :model="registerForm"
@@ -199,31 +198,32 @@ export default {
     color: #409eff;
 }
 
-.el-tab-pane {
-    margin-top: 20px;
-}
-.avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
+.avatar-uploader {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    margin-bottom: 20px;
 }
-.avatar-uploader .el-upload:hover {
+.avatar-uploader:hover {
     border-color: #409EFF;
 }
 .avatar-uploader-icon {
+    vertical-align: middle;
     font-size: 28px;
     color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
     text-align: center;
 }
 .avatar {
     width: 100px;
     height: 100px;
     display: block;
-    border-radius: 75px;
+    border-radius: 50px;
 }
 </style>

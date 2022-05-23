@@ -72,7 +72,7 @@ export default {
                 img1: '',
                 img2: '',
                 img3: '',
-                tags: ['aa','ss'],
+                tags: [],
             },
             inputValue: '',
             inputVisible: false
