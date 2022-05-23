@@ -14,7 +14,7 @@
                             :username="post.nickname"
                             :avatar="post.avatar"
                             :like="post.like"
-                            :postNumber="20"
+                            :postNumber="post.postNumber"
                         />
                         <el-avatar
                             slot="reference"
@@ -22,7 +22,7 @@
                             :size="50"
                             @click.native="routeToUserDetail"
                         ></el-avatar>
-                        <div slot="reference">{{ post.nickname }}</div>
+                        <div slot="reference">{{ this.post.nickname }}</div>
                     </el-popover>
                 </el-col>
                 <el-col :span="18">
@@ -52,9 +52,6 @@ export default {
     name: "Post",
     props: ["post"],
     components: { FloatingDetail },
-    created() {
-        console.log(this.post);
-    },
     methods: {
         routeToPostDetail() {
             // 暂时没用

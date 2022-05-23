@@ -40,7 +40,7 @@
                             <!-- 头像 -->
                             <el-upload
                                 class="avatar-uploader"
-                                action="#"
+                                action="https://jsonplaceholder.typicode.com/posts/"
                                 :show-file-list="false"
                                 :on-success="handleAvatarSuccess"
                                 :before-upload="beforeAvatarUpload"
@@ -49,7 +49,7 @@
                                 <img v-if="imageUrl" :src="imageUrl" class="avatar">
                                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                             </el-upload>
-                            <div v-if="imageUrl != ''"><i class="el-icon-delete"></i></div>
+                            <div v-if="imageUrl"><i class="el-icon-delete"></i></div>
                             <el-form
                                 ref="registerForm"
                                 :model="registerForm"
@@ -70,9 +70,7 @@
                                 </el-form-item>
                                 <el-form-item label="再次确定">
                                     <el-input
-                                        v-model="
-                                            registerForm.againPassword
-                                        "
+                                        v-model="registerForm.againPassword"
                                         placeholder="请输入密码"
                                         show-password
                                     ></el-input>
@@ -136,9 +134,9 @@ export default {
             api.user.login(this.loginForm)
             .then((data) => {
                 if (data.status === 200) {
-                    console.log(data.data.res);
-                    vue.$store.commit("login", data.data.res);
-                    vue.$router.push("/home"); // 登陆成功跳转首页
+                    console.log(data.data.res.user);
+                    vue.$store.commit("login", data.data.res.user);
+                    //vue.$router.push("/home"); // 登陆成功跳转首页
                 }
             })
             .catch((err) => {
@@ -146,9 +144,7 @@ export default {
             });
         },
         onRegisterClick() {
-            if (
-                this.registerForm.password !== this.registerForm.againPassword
-            ) {
+            if (this.registerForm.password !== this.registerForm.againPassword) {
                 this.alertShow = true;
                 return;
             }
@@ -157,6 +153,7 @@ export default {
                 .register(this.registerForm)
                 .then((data) => {
                     if (data.status === 200) {
+                        console.log(data);
                         vue.$store.commit("login", data.data.res);
                         vue.$router.push("/home"); // 登陆成功跳转首页
                     }
@@ -170,8 +167,7 @@ export default {
             this.registerDisabled = false;
         },
         handleAvatarSuccess(res, file) {
-            console.log(res);
-            this.imageUrl = this.prefix + res;
+            this.imageUrl = URL.createObjectURL(file.raw);
             console.log(this.imageUrl);
         },
         beforeAvatarUpload(file) {
@@ -187,6 +183,7 @@ export default {
         },
         removeFile(url) {
             console.log("remove url")
+            this.imageUrl = '';
         }
     },
 };

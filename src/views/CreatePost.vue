@@ -32,7 +32,7 @@
                     <el-col :span="16" style="text-align: start;">
                         <el-tag
                             :key="tag"
-                            v-for="tag in tags"
+                            v-for="tag in newPost.tags"
                             closable
                             :diable-transitions="false"
                             @close="handleClose(tag)">
@@ -72,8 +72,8 @@ export default {
                 img1: '',
                 img2: '',
                 img3: '',
+                tags: ['aa','ss'],
             },
-            tags: ['aa','ss'],
             inputValue: '',
             inputVisible: false
         }
@@ -86,7 +86,7 @@ export default {
         },
         handleClose(tag) {
             // 删除标签
-            this.tags.splice(this.tags.indexOf(tag), 1)
+            this.newPost.tags.splice(this.newPost.tags.indexOf(tag), 1)
         },
         showInput() {
             // 显示tag 输入框
@@ -99,10 +99,10 @@ export default {
             // 按enter 或者点击输入框外面，完成tag输入
             let inputValue = this.inputValue;
             // tag 不能多余 5个
-            if (this.tags.length >= 5) {
+            if (this.newPost.tags.length >= 5) {
                 this.$message.error('最多添加5个标签')
             } else if (inputValue) {
-                this.tags.push(inputValue);
+                this.newPost.tags.push(inputValue);
             }
             this.inputVisible = false;
             this.inputValue = '';
@@ -114,7 +114,15 @@ export default {
             } else if (this.newPost.title === '') {
                 this.$message.error('标题不能为空')
             }
-            api.createPost()
+            api.post.createPost()
+            .then((data) => {
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            this.$message.success("创建成功");
+            this.$router.push("/home");
         }
     }
 }

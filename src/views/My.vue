@@ -48,7 +48,7 @@
                 <el-card v-animate-css="'fadeInDown'">
                     <el-tabs v-model="activeName">
                         <el-tab-pane label="我的贴子" name="first">
-                            <el-card class="my-post" v-for="post in posts" :key="id">{{ post.title }}</el-card>
+                            <el-card class="my-post" v-for="(post, index) in posts" :key="index">{{ post.title }}</el-card>
                         </el-tab-pane>
                         <el-tab-pane label="其他" name="second">其他</el-tab-pane>
                         <el-tab-pane label="其他" name="third">其他</el-tab-pane>
@@ -128,6 +128,7 @@ export default {
         }
     },
     mounted() {
+        console.log(this.$store.state.user)
         this.user = this.$store.state.user;
     },
     methods: {

@@ -2,8 +2,8 @@ import axios from "axios";
 import qs from "qs";
 
 const post = {
-    createPost: () => {
-
+    createPost: (form) => {
+        return axios.post("post/create", qs.stringify(form));
     },
     getPostDetailByPostId: (id) => {
         return axios.get(

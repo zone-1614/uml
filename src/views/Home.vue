@@ -28,7 +28,7 @@ export default {
         // 请求10个post
         api.post.getPosts()
         .then((data) => {
-            //console.log(data);
+            console.log(data);
             for (let i = 0; i < 10; i++) {
                 this.posts.push(data.data.res[i]);
             }
@@ -39,7 +39,7 @@ export default {
         // 得到主页的轮播图
         api.getCarousels()
         .then((data) => {
-            console.log(data);
+            //console.log(data);
             this.carousels = data.data.res;
         })
         .catch(err => {

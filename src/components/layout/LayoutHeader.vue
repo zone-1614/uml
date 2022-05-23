@@ -13,11 +13,11 @@
         </div>
 
         <!-- 热门 -->
-        <div class="header-left">
+        <!-- <div class="header-left">
             <el-link :underline="false" href="/hot">
                 热门
             </el-link>
-        </div>
+        </div> -->
 
         <!-- 资源 -->
         <div class="header-left">
