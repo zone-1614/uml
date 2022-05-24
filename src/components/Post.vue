@@ -54,6 +54,7 @@ export default {
     components: { FloatingDetail },
     props: {
         post: {
+            id: "",
             title: "",
             content: "",
             nickname: "",
@@ -66,17 +67,10 @@ export default {
     },
     methods: {
         routeToPostDetail() {
-            // 暂时没用
-            this.$router.push({
-                name: "post",
-                params: { id: this.post.postId },
-            });
+            this.$router.push(`/post/${this.post.id}`);
         },
         routeToUserDetail() {
-            this.$router.push({
-                name: "userdetail",
-                params: { userid: this.post.userid },
-            });
+            this.$router.push(`/userdetail/${this.post.userid}`);
         },
     },
     computed: {

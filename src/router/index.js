@@ -26,11 +26,6 @@ const routes = [
     component: () => import('../views/Login.vue')
   },
   {
-    path: '/post/:id',
-    name: 'post',
-    component: () => import('../components/PostDetail.vue')
-  },
-  {
     path: '/message',
     name: 'message',
     component: () => import('../views/Message.vue')
@@ -49,6 +44,11 @@ const routes = [
     path: '/userdetail/:userid',
     name: 'userdetail',
     component: () => import('../views/UserDetail.vue')
+  },
+  {
+    path: '/post/:postId',
+    name: 'postdetail',
+    component: () => import('../views/PostDetail.vue')
   }
 ]
 

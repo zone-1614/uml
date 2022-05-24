@@ -5,9 +5,7 @@
                 <LayoutHeader></LayoutHeader>
             </el-header>
             <el-main>
-                <!-- <el-scrollbar style="height: 100%;"> -->
-                    <router-view></router-view>
-                <!-- </el-scrollbar> -->
+                <router-view></router-view>
             </el-main>
         </el-container>
     </div>
