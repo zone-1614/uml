@@ -25,8 +25,8 @@
                     <el-col :span="2" class="left-col">
                         <span class="nickname">{{post.nickname}}</span>
                     </el-col>
-                    <el-col :span="4" class="left-col">
-                        <span class="time">发表于{{post.createTime}}</span>
+                    <el-col :span="5" class="left-col">
+                        <span class="time">发表于 {{post.createTime}}</span>
                     </el-col>
                 </el-row>
                 <!-- 帖子内容 -->
@@ -39,7 +39,7 @@
                 <el-row class="bottom-util">
                     <!-- 帖子分割线下面的“点赞” “收藏” ”分享“ -->
                     <el-col :span="2">
-                        <el-button icon="el-icon-search" size="mini" circle></el-button>
+                        <el-button icon="el-icon-thumb" size="mini" circle></el-button>
                     </el-col>
                     <el-col :span="2">
                         <el-button v-if="!like" icon="el-icon-star-off" size="mini" circle @click="toggleLike"></el-button>
@@ -99,6 +99,11 @@ export default {
         },
         sendReply() {
             this.input = false;
+            if (this.$store.state.isLogin) {
+                this.$emit("addComment", this.replyContent);
+            } else {
+                this.$message.warning("请先登录");
+            }
             this.replyContent = "";
         }
     },

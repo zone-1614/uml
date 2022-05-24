@@ -1,6 +1,6 @@
 <template>
     <div>
-        <PostContent :post="post"></PostContent>
+        <PostContent :post="post" @addComment="addComment"></PostContent>
         <PostComment v-for="(comment, key) in comments" :key="key" :comment="comment"></PostComment>
     </div>
 </template>
@@ -31,6 +31,18 @@ export default {
         return {
             post: {},
             comments: [],
+        }
+    },
+    methods: {
+        addComment(replyContent) {
+            console.log(replyContent);
+            var comment = {
+                content: replyContent,
+                nickname: this.$store.state.user.nickname,
+                avatar: this.$store.state.user.avatar,
+                createTime: Date.now()
+            }
+            this.comments.unshift(comment);
         }
     }
 }

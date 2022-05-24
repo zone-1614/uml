@@ -13,8 +13,8 @@
                     <el-col :span="2" class="left-col">
                         <span class="nickname">{{comment.nickname}}</span>
                     </el-col>
-                    <el-col :span="4" :offset="16" class="left-col">
-                        <span class="time">发表于{{comment.createTime}}</span>
+                    <el-col :span="5" :offset="15" class="left-col">
+                        <span class="time">发表于 {{comment.createTime}}</span>
                     </el-col>
                 </el-row>
                 <!-- 回复内容 -->
