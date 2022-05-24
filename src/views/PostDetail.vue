@@ -1,16 +1,18 @@
 <template>
-    <div v-animate-css="'fadeIn'">
-        <PostContent :title="post.title" :content="post.content" :avatar="post.avatar" :nickname="post.nickname" :time="post.createTime"></PostContent>
+    <div>
+        <PostContent :post="post"></PostContent>
+        <PostComment v-for="(comment, key) in comments" :key="key" :comment="comment"></PostComment>
     </div>
 </template>
 
 <script>
 import PostContent from "@/components/postdetail/PostContent.vue"
+import PostComment from "@/components/postdetail/PostComment.vue"
 import api from "@/api/index"
 export default {
     name: "PostDetail",
     components: {
-        PostContent, 
+        PostContent, PostComment
     },
     created() {
         const id = this.$route.params["postId"];

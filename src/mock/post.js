@@ -51,7 +51,7 @@ var posts = [
         postNumber: 15,
         // },
         content: Mock.Random.cparagraph(5, 15),
-        createTime: Mock.Random.date(),
+        createTime: Mock.Random.datetime(),
         tag: ["买东西", "C10"],
     },
     {
@@ -65,7 +65,7 @@ var posts = [
         like: 21,
         postNumber: 6,
         // },
-        createTime: Mock.Random.date(),
+        createTime: Mock.Random.datetime(),
         content: Mock.Random.csentence(),
         tag: ["游戏"],
     },
@@ -80,7 +80,7 @@ var posts = [
         like: 26,
         postNumber: 3,
         // },
-        createTime: Mock.Random.date(),
+        createTime: Mock.Random.datetime(),
         content: Mock.Random.csentence(),
         tag: ["交易", "讲座票"],
     },
@@ -95,7 +95,7 @@ var posts = [
         like: 8,
         postNumber: 1,
         // },
-        createTime: Mock.Random.date(),
+        createTime: Mock.Random.datetime(),
         content: "",
         tag: ["组队", "外卖", "C10"],
     },
@@ -110,7 +110,7 @@ var posts = [
         like: 28,
         postNumber: 7,
         // },
-        createTime: Mock.Random.date(),
+        createTime: Mock.Random.datetime(),
         content: Mock.Random.csentence(),
     },
     {
@@ -124,7 +124,7 @@ var posts = [
         like: 5,
         postNumber: 2,
         // },
-        createTime: Mock.Random.date(),
+        createTime: Mock.Random.datetime(),
         content: Mock.Random.csentence(),
     },
 ];
@@ -167,30 +167,40 @@ var comments = [
         postId: 1,
         userId: 1,
         nickname: "路人",
-        content: "说得对",
+        content: "正确的，明智的，客观的，一阵见血的，直击要害的",
+        avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220524075346.png",
+        createTime: Mock.Random.datetime()
     },
     {
         postId: 1,
         userId: 2,
         nickname: "abcde",
-        content: "正确的",
+        content: Mock.Random.cparagraph(5, 15),
+        avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202318.png",
+        createTime: Mock.Random.datetime()
     },
     {
         postId: 1,
         userId: 3,
         nickname: "^_^",
-        content: "客观的",
+        content: Mock.Random.cparagraph(5, 15),
+        avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png",
+        createTime: Mock.Random.datetime()
     },
     {
         postId: 1,
         userId: 4,
         nickname: "yyd",
-        content: "明智的",
+        content: Mock.Random.cparagraph(5, 15),
+        avatar: Mock.Random.dataImage("50x50"),
+        createTime: Mock.Random.datetime()
     },
     {
         postId: 1,
         userId: 5,
         nickname: "jkl",
-        content: "说得对",
+        content: Mock.Random.cparagraph(5, 15),
+        avatar: Mock.Random.dataImage("50x50"),
+        createTime: Mock.Random.datetime()
     }
 ];

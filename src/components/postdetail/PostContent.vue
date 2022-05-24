@@ -5,10 +5,10 @@
                 <!-- 头像和标题  最后面有关注按钮 -->
                 <el-row type="flex" align="middle">
                     <el-col :span="2">
-                        <el-avatar :src="avatar" size="100"></el-avatar>
+                        <el-avatar :src="post.avatar" :size="40"></el-avatar>
                     </el-col>
                     <el-col :span="10" class="title">
-                        <b>{{title}}</b>
+                        <b>{{post.title}}</b>
                     </el-col>
                     <el-col :span="2" :offset="10">
                         <el-button type="primary" plain size="mini">
@@ -19,16 +19,16 @@
                 <!-- 用户名和发表时间 -->
                 <el-row>
                     <el-col :span="2" class="left-col">
-                        <span class="nickname">{{nickname}}</span>
+                        <span class="nickname">{{post.nickname}}</span>
                     </el-col>
                     <el-col :span="4" class="left-col">
-                        <span class="time">发表于{{time}}</span>
+                        <span class="time">发表于{{post.createTime}}</span>
                     </el-col>
                 </el-row>
                 <!-- 帖子内容 -->
                 <el-row>
-                    <el-col :span="21" class="content-col">
-                        {{content}}
+                    <el-col :span="24" class="content-col">
+                        {{post.content}}
                     </el-col>
                 </el-row>
                 <el-divider></el-divider>
@@ -71,7 +71,7 @@
 <script>
 export default {
     name: "PostContent",
-    props: ["title", "content", "avatar", "nickname", "time"],
+    props: ["post"],
     data() {
         return {
             like: false,
