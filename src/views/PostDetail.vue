@@ -9,6 +9,7 @@
 import PostContent from "@/components/postdetail/PostContent.vue"
 import PostComment from "@/components/postdetail/PostComment.vue"
 import api from "@/api/index"
+import Mock from "mockjs"
 export default {
     name: "PostDetail",
     components: {
@@ -40,7 +41,7 @@ export default {
                 content: replyContent,
                 nickname: this.$store.state.user.nickname,
                 avatar: this.$store.state.user.avatar,
-                createTime: Date.now()
+                createTime: Mock.Random.datetime()
             }
             this.comments.unshift(comment);
         }
