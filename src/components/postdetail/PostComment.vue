@@ -5,7 +5,10 @@
                 <!-- 头像 名字 发布时间 -->
                 <el-row type="flex" align="middle">
                     <el-col :span="2">
-                        <el-avatar :src="comment.avatar" :size="40"></el-avatar>
+                        <el-popover placement="bottom-start" width="350" trigger="hover" :open-delay="400">
+                            <FloatingDetail :nickname="comment.nickname" :avatar="comment.avatar" :like="comment.like" :postNumber="comment.postNumber"></FloatingDetail>
+                            <el-avatar slot="reference" :src="comment.avatar" :size="40"></el-avatar>
+                        </el-popover>
                     </el-col>
                     <el-col :span="2" class="left-col">
                         <span class="nickname">{{comment.nickname}}</span>
@@ -26,8 +29,10 @@
 </template>
 
 <script>
+import FloatingDetail from "@/components/FloatingDetail.vue"
 export default {
     name: "PostComment",
+    components: { FloatingDetail },
     props: ["comment"]
 }
 </script>

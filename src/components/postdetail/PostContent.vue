@@ -4,8 +4,12 @@
             <el-card v-animate-css="'fadeInDownBig'">
                 <!-- 头像和标题  最后面有关注按钮 -->
                 <el-row type="flex" align="middle">
+                    <!-- 鼠标悬浮头像 -->
                     <el-col :span="2">
-                        <el-avatar :src="post.avatar" :size="40"></el-avatar>
+                        <el-popover placement="bottom-start" width="350" trigger="hover" :open-delay="400">
+                            <FloatingDetail :nickname="post.nickname" :avatar="post.avatar" :like="post.like" :postNumber="post.postNumber"></FloatingDetail>
+                            <el-avatar slot="reference" :src="post.avatar" :size="40"></el-avatar>
+                        </el-popover>
                     </el-col>
                     <el-col :span="10" class="title">
                         <b>{{post.title}}</b>
@@ -69,6 +73,7 @@
 </template>
 
 <script>
+import FloatingDetail from '../FloatingDetail.vue';
 export default {
     name: "PostContent",
     props: ["post"],
@@ -77,7 +82,7 @@ export default {
             like: false,
             input: false,
             replyContent: ""
-        }
+        };
     },
     methods: {
         toggleLike() {
@@ -96,7 +101,8 @@ export default {
             this.input = false;
             this.replyContent = "";
         }
-    }
+    },
+    components: { FloatingDetail }
 }
 </script>
 
