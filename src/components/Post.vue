@@ -73,13 +73,17 @@ export default {
             postNumber: 0,
             createTime: "",
             tag: [],
+        }
+    },
+    data() {
+        return {
             img: []
         }
     },
     created() {
+        this.img = [];
         api.getImg3().then((data) => {
-            this.post.img = data.data.res.img;
-            console.log(this.post.img);
+            this.img = data.data.res.img;
         })
         .catch((err) => {
             console.log(err);

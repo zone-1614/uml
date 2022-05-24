@@ -21,13 +21,14 @@ export default {
             res: myposts
         }
     },
-    getPostDetailByPostId(id) {
-        console.log(id);
+    getPostDetailByPostId(req) {
+        const sp = req.url.split('/');
+        const id = sp[sp.length - 1];
         const post = posts.filter((p) => {
             return p.id == id;
         })
         const commentsForPost = comments.filter((c) => {
-            return c.postId == post.id;
+            return c.postId == id;
         })
         return {
             res: {
@@ -49,7 +50,7 @@ var posts = [
         like: 23,
         postNumber: 15,
         // },
-        content: Mock.Random.csentence(),
+        content: Mock.Random.cparagraph(5, 15),
         createTime: Mock.Random.date(),
         tag: ["买东西", "C10"],
     },
