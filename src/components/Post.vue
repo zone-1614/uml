@@ -32,9 +32,6 @@
                     </div>
 
                     <div class="post-content">{{ summary }}</div>
-                    <el-tag v-for="tag in post.tag" :key="tag" class="tag">{{
-                        tag
-                    }}</el-tag>
                 </el-col>
                 <el-col :span="4">
                     <div class="post-time">
@@ -43,12 +40,25 @@
                     </div>
                 </el-col>
             </el-row>
+            <!-- 三张图片 -->
+            <!-- <el-row class="img3">
+                <el-col :span="4" :offset="2" v-for="(i, idx) in post.img" :key="idx">
+                    <img :src="i">
+                </el-col>
+            </el-row> -->
+            <!-- tags -->
+            <el-row>
+                <el-col :span="20" :offset="2">
+                    <el-tag v-for="tag in post.tag" :key="tag" class="tag">{{tag}}</el-tag>
+                </el-col>
+            </el-row>
         </el-card>
     </div>
 </template>
 
 <script>
 import FloatingDetail from "./FloatingDetail.vue";
+import api from "@/api/index"
 export default {
     name: "Post",
     components: { FloatingDetail },
@@ -62,8 +72,18 @@ export default {
             like: 0,
             postNumber: 0,
             createTime: "",
-            tag: []
+            tag: [],
+            img: []
         }
+    },
+    created() {
+        api.getImg3().then((data) => {
+            this.post.img = data.data.res.img;
+            console.log(this.post.img);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     },
     methods: {
         routeToPostDetail() {
@@ -129,5 +149,9 @@ a {
 
 .el-card {
     border-radius: 15px;
+}
+
+.img3 {
+    margin-top: 20px;
 }
 </style>

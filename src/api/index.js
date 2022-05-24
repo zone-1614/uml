@@ -23,5 +23,8 @@ export default {
     upload: () => {
         // mock 图片
         return axios.post("file/image")
+    },
+    getImg3() {
+        return axios.get("image")
     }
 }
