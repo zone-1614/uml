@@ -4,7 +4,7 @@
             <el-main>
                 <el-menu default-active="1"
                     @open="handleOpen">
-                    <el-menu-item v-for="(user, idx) in users" :index="idx">
+                    <el-menu-item v-for="(user, idx) in users" :key="idx">
                         <i class="el-icon-menu"></i>
                         <span slot="title">{{user.nickname}}</span>
                     </el-menu-item>
