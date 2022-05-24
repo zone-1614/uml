@@ -2,11 +2,13 @@
     <el-scrollbar class="chatroom">
         <el-container>
             <el-main>
-                <el-row>
-                    <el-col span="24" style="background: #fbb033">
-                        <div v-for="u in users">{{u}}</div>
-                    </el-col>
-                </el-row>
+                <el-menu default-active="1"
+                    @open="handleOpen">
+                    <el-menu-item v-for="(user, idx) in users" :index="idx">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">{{user.nickname}}</span>
+                    </el-menu-item>
+                </el-menu>
             </el-main>
         </el-container>
     </el-scrollbar>
@@ -23,5 +25,8 @@ export default {
 .chatroom {
     width: 100%;
     height: 80vh;
+}
+.card {
+    border-radius: 15px;
 }
 </style>

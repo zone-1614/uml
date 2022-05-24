@@ -10,7 +10,6 @@
                         <SystemNotice :notices="notices"></SystemNotice>
                     </el-tab-pane>
                     <el-tab-pane label="我的消息">
-                        <el-card>聊天室</el-card>
                         <ChatRoom></ChatRoom>
                     </el-tab-pane>
                 </el-tabs>

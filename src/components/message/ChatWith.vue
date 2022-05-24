@@ -5,64 +5,22 @@
                 <el-main>
                     <el-row>
                         <el-col span="24" style="background: #e6fcf5">
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}{{ user }}{{ user }}{{ user
-                            }}{{ user }}{{ user }}{{ user }}{{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}{{ user }}{{ user }}{{ user
-                            }}{{ user }}{{ user }}{{ user }}{{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}{{ user }}{{ user }}{{ user
-                            }}{{ user }}{{ user }}{{ user }}{{ user }}{{ user }}
-                            {{ user }}
-                            {{ user }}{{ user }}{{ user }}{{ user }}{{ user
-                            }}{{ user }}{{ user }}{{ user }}
+                            
                         </el-col>
                     </el-row>
                 </el-main>
             </el-container>
         </el-scrollbar>
-        <el-row>
-            <el-col span="24">
-                <el-scrollbar class="input">
-                    <el-container>
-                        <el-main>
-                            <!-- 按钮在后面，单行信息 -->
-                            <el-input resize="none" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容">
-                                <el-button slot="append" type="primary" icon="el-icon-search">
-                                    发送
-                                </el-button>
-                            </el-input>
-                        </el-main>
-                    </el-container>
-                </el-scrollbar>
+        <el-row class="input-row">
+            <el-col span="20">
+                <el-input resize="none" type="textarea" :rows="5" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容">
+                    
+                </el-input>
+            </el-col>
+            <el-col span="4">
+                <el-button type="primary" icon="el-icon-chat-square">
+                        发送
+                </el-button>
             </el-col>
         </el-row>
     </div>
@@ -99,5 +57,9 @@ export default {
 }
 .sendButton {
     margin-top: 30px;
+}
+
+.input-row {
+    margin-top: 20px;
 }
 </style>
