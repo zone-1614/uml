@@ -1,21 +1,19 @@
 <template>
     <div>
-        <el-scrollbar class="chatroom">
+        <!-- 聊天信息 -->
+        <el-scrollbar class="chatroom" ref="chat">
             <el-container>
                 <el-main>
-                    <el-row>
-                        <el-col span="24" style="background: #e6fcf5">
-                            
-                        </el-col>
-                    </el-row>
+                    <div v-for="(m, idx) in messages" :key="idx">
+                        {{m}}
+                    </div>
                 </el-main>
             </el-container>
         </el-scrollbar>
+        <!-- 发送信息 -->
         <el-row class="input-row">
             <el-col span="20">
-                <el-input resize="none" type="textarea" :rows="5" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容">
-                    
-                </el-input>
+                <el-input resize="none" type="textarea" :rows="5" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容"></el-input>
             </el-col>
             <el-col span="4">
                 <el-button type="primary" icon="el-icon-chat-square">
@@ -41,8 +39,18 @@ export default {
         return {
             user: {},
             input: "",
+            messages: ["nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh"]
         };
     },
+    methods: {
+        // 聊天页默认滚到最下
+        scrollDown() {
+            this.$refs['chat'].wrap.scrollTop = this.$refs['chat'].wrap.scrollHeight;
+        }
+    },
+    mounted() {
+        scrollDown();
+    }
 };
 </script>
 
