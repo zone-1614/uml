@@ -13,10 +13,19 @@
 <script>
 import ChatWith from "@/components/message/ChatWith.vue";
 import UserList from "@/components/message/UserList.vue";
+import api from "@/api/index";
 export default {
     name: "ChatRoom",
     components: {
         ChatWith, UserList
+    },
+    created() {
+        api.user.getChatUsers().then((data) => {
+            this.chatUsers = data.data.res;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     },
     data() {
         return {

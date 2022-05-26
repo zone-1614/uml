@@ -4,7 +4,7 @@
             <el-main>
                 <el-menu default-active="1">
                     <el-menu-item v-for="(user, idx) in users" :key="idx" @click="chatWith(user)">
-                        <i class="el-icon-menu"></i>
+                        <el-avatar :src="user.avatar"></el-avatar>
                         <span slot="title">{{user.nickname}}</span>
                     </el-menu-item>
                 </el-menu>
@@ -33,5 +33,13 @@ export default {
 }
 .card {
     border-radius: 15px;
+}
+
+.el-menu-item {
+    text-align: start;
+}
+
+.el-avatar {
+    margin-right: 20px;
 }
 </style>

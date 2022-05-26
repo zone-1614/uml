@@ -19,3 +19,4 @@ Mock.mock(RegExp(baseURL + 'post/detail/' + ".*"), 'get', post.getPostDetailByPo
 Mock.mock(baseURL + 'file/image', 'post', file.upload)
 Mock.mock(baseURL + 'image', 'get', file.getImg)
 Mock.mock(baseURL + 'reply', 'get', reply.getReply)
+Mock.mock(baseURL + 'user/chatusers', 'get', user.getChatUsers)

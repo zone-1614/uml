@@ -11,6 +11,9 @@ const user = {
     // 点击别人头像时，跳转到别人的详细页，用这个接口获取他的详细信息
     getUserDetail(userid) {
         return axios.get(`user/detail/${userid}`)
+    },
+    getChatUsers() {
+        return axios.get('user/chatusers')
     }
 };
 
