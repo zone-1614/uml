@@ -2,9 +2,8 @@
     <el-scrollbar class="chatroom">
         <el-container>
             <el-main>
-                <el-menu default-active="1"
-                    @open="chatWith">
-                    <el-menu-item v-for="(user, idx) in users" :key="idx">
+                <el-menu default-active="1">
+                    <el-menu-item v-for="(user, idx) in users" :key="idx" @click="chatWith(user)">
                         <i class="el-icon-menu"></i>
                         <span slot="title">{{user.nickname}}</span>
                     </el-menu-item>
@@ -19,8 +18,9 @@ export default {
     name: "UserList",
     props: ["users"],
     methods: {
-        chatWith() {
-            console.log("Chat with it");
+        chatWith(user) {
+            console.log(user.userId);
+            this.$emit("chatWith", user.userId);
         }
     }
 }
