@@ -3,6 +3,7 @@ import user from './user'
 import post from "./post"
 import carousels from "./carousels"
 import file from "./file"
+import reply from "./reply"
 
 Mock.setup({
     timeout: '300-600'
@@ -17,3 +18,4 @@ Mock.mock(baseURL + 'post/myposts', 'get', post.getMyPosts)
 Mock.mock(RegExp(baseURL + 'post/detail/' + ".*"), 'get', post.getPostDetailByPostId)
 Mock.mock(baseURL + 'file/image', 'post', file.upload)
 Mock.mock(baseURL + 'image', 'get', file.getImg)
+Mock.mock(baseURL + 'reply', 'get', reply.getReply)

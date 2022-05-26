@@ -6,7 +6,7 @@
                 <el-container>
                     <el-main  class="2342" ref="chat">
                         <div v-for="(m, idx) in messages" :key="idx">
-                            {{m}}
+                            <ChatItem :item="m"></ChatItem>
                         </div>
                         <div ref="bottomAnchor" style="opacity: 0.0;">bottom</div>
                     </el-main>
@@ -28,27 +28,48 @@
 </template>
 
 <script>
+import api from "@/api/index";
+import ChatItem from "@/components/message/ChatItem.vue";
 export default {
     name: "ChatWith",
+    components: {
+        ChatItem
+    },
     props: ["chatId"],
     created() {
-        this.user = {
-            nickname: "aaa",
-            gender: 2,
-            userId: this.chatId,
-        };
-        this.messages = ["nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh"]
-       
+        this.user = this.$store.state.user;
+        console.log(this.user);
+        api.getReply().then((data) => {
+            this.messages = data.data.res;
+            this.$nextTick(() => {
+                this.$refs.bottomAnchor.scrollIntoView(); 
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+            this.$refs.bottomAnchor.scrollIntoView(); 
+        })
     },
     data() {
         return {
-            user: {},
+            user: {
+                nickname: "",
+                userId: "",
+                avatar: ""
+            },
             input: "",
-            messages: [] };
+            messages: []
+        };
     },
     methods: {
         add() {
-            
+            this.messages.push({
+                from: "user1",
+                to: "user2",
+                content: this.input
+            });
+            this.input = "";
+            this.$refs.bottomAnchor.scrollIntoView(); 
         }
     },
     mounted() {

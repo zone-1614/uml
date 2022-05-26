@@ -26,5 +26,8 @@ export default {
     },
     getImg3() {
         return axios.get("image")
+    },
+    getReply() {
+        return axios.get("reply")
     }
 }
