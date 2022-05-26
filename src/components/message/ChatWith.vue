@@ -47,15 +47,8 @@ export default {
             messages: [] };
     },
     methods: {
-        add(){
-            this.messages.push("12315");
-            console.log(this.$refs.bottomAnchor)
-            this.$refs.bottomAnchor.scrollIntoView(); 
+        add() {
             
-            // this.$refs['chat'].$el.scrollTop = this.$refs['chat'].$el.scrollHeight;
-            // console.log([this.$refs.chat.$el])
-            // console.log(this.$refs['chat'].$el.scrollTop)
-            // console.log(this.$refs['chat'].$el.scrollHeight)
         }
     },
     mounted() {
