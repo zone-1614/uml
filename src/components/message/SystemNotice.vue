@@ -3,7 +3,7 @@
         <el-card>回复我的</el-card>
         <el-card v-if="notices.length === 0">并没有消息</el-card>
         <el-card v-else>
-            <div class="message" v-for="n in notices" :key="m">
+            <div class="message" v-for="(n, idx) in notices" :key="idx">
                 <el-row :gutter="20" type="flex" justify="start">
                     <el-col :span="18" style="text-align: start">
                         <i class="el-icon-bell"></i>

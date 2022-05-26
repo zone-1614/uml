@@ -3,7 +3,7 @@
         <el-container>
             <el-main>
                 <el-menu default-active="1"
-                    @open="handleOpen">
+                    @open="chatWith">
                     <el-menu-item v-for="(user, idx) in users" :key="idx">
                         <i class="el-icon-menu"></i>
                         <span slot="title">{{user.nickname}}</span>
@@ -17,7 +17,12 @@
 <script>
 export default {
     name: "UserList",
-    props: ["users"]
+    props: ["users"],
+    methods: {
+        chatWith() {
+            console.log("Chat with it");
+        }
+    }
 }
 </script>
 

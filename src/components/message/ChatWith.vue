@@ -12,10 +12,10 @@
         </el-scrollbar>
         <!-- 发送信息 -->
         <el-row class="input-row">
-            <el-col span="20">
+            <el-col :span="20">
                 <el-input resize="none" type="textarea" :rows="5" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容"></el-input>
             </el-col>
-            <el-col span="4">
+            <el-col :span="4">
                 <el-button type="primary" icon="el-icon-chat-square">
                         发送
                 </el-button>
@@ -39,17 +39,20 @@ export default {
         return {
             user: {},
             input: "",
-            messages: ["nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh"]
+            messages: ["nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh","nihao", "nihao", "hhh"]
         };
     },
     methods: {
         // 聊天页默认滚到最下
         scrollDown() {
-            this.$refs['chat'].wrap.scrollTop = this.$refs['chat'].wrap.scrollHeight;
+            // this.$refs['chat'].wrap.scrollTop = this.$refs['chat'].wrap.scrollHeight;
+            // this.$refs['chat'].wrap.scrollTop
         }
     },
     mounted() {
-        scrollDown();
+        console.log("mount");
+        this.scrollDown();
+        this.$refs['chat'].wrap.scrollTop = 100;
     }
 };
 </script>
