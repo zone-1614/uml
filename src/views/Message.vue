@@ -2,14 +2,14 @@
     <el-main v-animate-css="'fadeInDown'">
         <el-row :gutter="30">
             <el-col :span="16" :offset="4">
-                <el-tabs tab-position="left">
+                <el-tabs tab-position="left" >
                     <el-tab-pane label="回复我的">
                         <ReplyMe :messages="messages"></ReplyMe>
                     </el-tab-pane>
                     <el-tab-pane label="系统通知">
                         <SystemNotice :notices="notices"></SystemNotice>
                     </el-tab-pane>
-                    <el-tab-pane label="我的消息">
+                    <el-tab-pane label="我的消息" lazy>
                         <ChatRoom></ChatRoom>
                     </el-tab-pane>
                 </el-tabs>
@@ -69,6 +69,12 @@ export default {
                     time: "2022/5/20  18:32"
                 }
             ]
+        }
+    },
+    methods:{
+        onClick:(e)=>{
+            console.log(e);
+            // this.$refs.bottomAnchor.scrollIntoView();
         }
     }
 }
