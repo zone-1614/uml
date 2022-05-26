@@ -35,7 +35,7 @@ export default {
     components: {
         ChatItem
     },
-    props: ["chatId"],
+    props: ["chatUser"],
     created() {
         this.user = this.$store.state.user;
         console.log(this.user);
@@ -64,8 +64,10 @@ export default {
     methods: {
         add() {
             this.messages.push({
-                from: "user1",
-                to: "user2",
+                from: user,
+                to: {
+
+                },
                 content: this.input
             });
             this.input = "";

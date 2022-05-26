@@ -5,7 +5,7 @@
             <UserList :users="chatUsers" @chatWith="chatWithUser"></UserList>
         </el-col>
         <el-col :span="18">
-            <ChatWith :user="chatId"></ChatWith>
+            <ChatWith :user="chatUsers[chatIndex]"></ChatWith>
         </el-col>
     </el-row>
 </template>
@@ -29,52 +29,15 @@ export default {
     },
     data() {
         return {
-            // 第一个用户的Id
-            chatId: 1,
+            chatIndex: 0,
             // 与你聊天的用户列表
-            chatUsers: [
-                {
-                    nickname: "nihao",
-                    userId: 1,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-                {
-                    nickname: "wwww",
-                    userId: 2,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-                {
-                    nickname: "qweqwe",
-                    userId: 3,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-                {
-                    nickname: "ad aacd",
-                    userId: 4,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-                {
-                    nickname: "hndd",
-                    userId: 5,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-                {
-                    nickname: "weqqwe",
-                    userId: 6,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-                {
-                    nickname: "tyuj",
-                    userId: 7,
-                    avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png"
-                },
-            ],
+            chatUsers: [],
         };
     },
     methods: {
-        chatWithUser(chatWithId) {
-            this.chatId = chatWithId;
-            console.log("chat with " + chatWithId);
+        chatWithUser(idx) {
+            console.log(idx);
+            this.chatIndex = idx;
         }
     }
 };

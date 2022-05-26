@@ -3,7 +3,7 @@
         <el-container>
             <el-main>
                 <el-menu default-active="1">
-                    <el-menu-item v-for="(user, idx) in users" :key="idx" @click="chatWith(user)">
+                    <el-menu-item v-for="(user, idx) in users" :key="idx" @click="chatWith(idx)">
                         <el-avatar :src="user.avatar"></el-avatar>
                         <span slot="title">{{user.nickname}}</span>
                     </el-menu-item>
@@ -18,9 +18,8 @@ export default {
     name: "UserList",
     props: ["users"],
     methods: {
-        chatWith(user) {
-            console.log(user.userId);
-            this.$emit("chatWith", user.userId);
+        chatWith(idx) {
+            this.$emit("chatWith", idx);
         }
     }
 }
