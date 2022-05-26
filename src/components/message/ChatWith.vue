@@ -4,7 +4,7 @@
         <div id="scroll">
             <el-scrollbar class="chatroom">
                 <el-container>
-                    <el-main  class="2342" ref="chat">
+                    <el-main ref="chat">
                         <div v-for="(m, idx) in messages" :key="idx">
                             <ChatItem :item="m"></ChatItem>
                         </div>
@@ -19,7 +19,7 @@
                 <el-input resize="none" type="textarea" :rows="5" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容"></el-input>
             </el-col>
             <el-col :span="4">
-                <el-button type="primary" icon="el-icon-chat-square" @click="add()">
+                <el-button type="primary" icon="el-icon-chat-square" @click="add">
                     发送
                 </el-button>
             </el-col>
@@ -64,13 +64,14 @@ export default {
     methods: {
         add() {
             this.messages.push({
-                from: user,
+                from: this.user,
                 to: {
 
                 },
                 content: this.input
             });
             this.input = "";
+            console.log(messages[messages.length - 1]);
             this.$refs.bottomAnchor.scrollIntoView(); 
         }
     },

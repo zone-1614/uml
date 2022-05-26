@@ -1,6 +1,6 @@
 <template>
-  <el-row v-if="item.from.userId == my.id">
-    我发的
+  <el-row v-if="item.from.userId == my.userId">
+    我发的 {{item}}
   </el-row>
   <el-row v-else>
     他发的

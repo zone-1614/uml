@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         chatWithUser(idx) {
-            console.log(idx);
+            // console.log(idx);
             this.chatIndex = idx;
         }
     }

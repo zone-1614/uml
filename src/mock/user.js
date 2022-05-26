@@ -19,7 +19,7 @@ const user = {
     nickname: "UML",
     avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png",
     gender: 0,
-    id: 123456
+    userId: 123456
 }
 
 const chatUsers = [
