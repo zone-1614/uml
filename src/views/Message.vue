@@ -70,12 +70,6 @@ export default {
                 }
             ]
         }
-    },
-    methods:{
-        onClick:(e)=>{
-            console.log(e);
-            // this.$refs.bottomAnchor.scrollIntoView();
-        }
     }
 }
 </script>
