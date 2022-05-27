@@ -1,23 +1,37 @@
 <template>
     <div class="post">
-        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->  
-        <el-card >
+        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->
+        <el-card v-if="post">
             <el-row :gutter="20">
                 <el-col :span="2">
-                    <el-popover placement="top-start" width="350" trigger="hover">
-                        <FloatingDetail :user='post.user'/>
-                        <el-avatar slot="reference" :src="post.user.avatar" :size="50"></el-avatar>
-                        <div slot="reference">{{ post.user.nickname }}</div>
+                    <!-- 鼠标悬浮的详细信息 -->
+                    <el-popover
+                        placement="top-start"
+                        width="350"
+                        trigger="hover"
+                        :open-delay="400"
+                    >
+                        <FloatingDetail
+                            :nickname="post.nickname"
+                            :avatar="post.avatar"
+                            :like="post.like"
+                            :postNumber="post.postNumber"
+                        />
+                        <el-avatar
+                            slot="reference"
+                            :src="post.avatar"
+                            :size="50"
+                            @click.native="routeToUserDetail"
+                        ></el-avatar>
+                        <div slot="reference">{{ post.nickname }}</div>
                     </el-popover>
-                    
                 </el-col>
                 <el-col :span="18">
-                    <div class="post-title">
-                        <router-link :to="`/post/${post.id}`">{{ post.title }}</router-link>
+                    <div class="post-title" @click="routeToPostDetail">
+                        {{ post.title }}
                     </div>
 
                     <div class="post-content">{{ summary }}</div>
-                    <el-tag v-for="tag in post.tag" :key="tag" class="tag">{{ tag }}</el-tag>
                 </el-col>
                 <el-col :span="4">
                     <div class="post-time">
@@ -26,41 +40,79 @@
                     </div>
                 </el-col>
             </el-row>
+            <!-- 三张图片 -->
+            <!-- <el-row class="img3">
+                <el-col :span="4" :offset="2" v-for="(i, idx) in post.img" :key="idx">
+                    <img :src="i">
+                </el-col>
+            </el-row> -->
+            <!-- tags -->
+            <el-row>
+                <el-col :span="20" :offset="2">
+                    <el-tag v-for="tag in post.tag" :key="tag" class="tag">{{tag}}</el-tag>
+                </el-col>
+            </el-row>
         </el-card>
     </div>
 </template>
 
 <script>
 import FloatingDetail from "./FloatingDetail.vue";
+import api from "@/api/index"
 export default {
     name: "Post",
-    props: ["post"],
     components: { FloatingDetail },
+    props: {
+        post: {
+            id: "",
+            title: "",
+            content: "",
+            nickname: "",
+            avatar: "",
+            like: 0,
+            postNumber: 0,
+            createTime: "",
+            tag: [],
+        }
+    },
+    data() {
+        return {
+            img: []
+        }
+    },
+    created() {
+        this.img = [];
+        api.getImg3().then((data) => {
+            this.img = data.data.res.img;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    },
     methods: {
-        clickPost() {
-            this.$router.push({
-                name: "post",
-                params: { id: this.post.id }
-            });
+        routeToPostDetail() {
+            this.$router.push(`/post/${this.post.id}`);
+        },
+        routeToUserDetail() {
+            this.$router.push(`/userdetail/${this.post.userid}`);
         },
     },
     computed: {
         summary() {
             return this.post.content.substr(0, 100) + "......";
-        }
+        },
     },
-    components: { FloatingDetail }
-}
+};
 </script>
 
 <style scoped>
-
 a {
     text-decoration: none;
     color: #262626;
 }
 
 .post-title {
+    cursor: pointer;
     float: inline-start;
     text-align: left;
     padding: 10px;
@@ -93,5 +145,17 @@ a {
     font-family: din, "Hiragino Sans GB", "Microsoft Yahei", Arial, sans-serif;
     display: flex;
     align-items: center;
+}
+
+.el-avatar {
+    cursor: pointer;
+}
+
+.el-card {
+    border-radius: 15px;
+}
+
+.img3 {
+    margin-top: 20px;
 }
 </style>

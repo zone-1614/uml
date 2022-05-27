@@ -1,25 +1,19 @@
 <template>
-    <el-container>
-        <el-main>
-            <el-row>
-                <el-col :span="16" :offset="4">
-                    <el-carousel indicator-position="outside" trigger="click">
-                        <el-carousel-item
-                            v-for="item in carousels.length"
-                            :key="item"
-                        >
-                            <router-link :to="`/post/admin/${item}`">
-                                <img :src="carousels[item - 1]" />
-                            </router-link>
-                        </el-carousel-item>
-                    </el-carousel>
-                    <div v-for="(post, index) in posts" :key="index">
-                        <Post :post="post"></Post>
-                    </div>
-                </el-col>
-            </el-row>
-        </el-main>
-    </el-container>
+    <el-row class="infinite-list" v-infinite-scroll="loadSomePosts">
+        <el-col :span="16" :offset="4" >
+            <el-carousel indicator-position="outside" trigger="click">
+                <el-carousel-item
+                    v-for="item in carousels.length"
+                    :key="item">
+                    <router-link :to="`/post/admin/${item}`">
+                        <img :src="carousels[item - 1]" />
+                    </router-link>
+                </el-carousel-item>
+            </el-carousel>
+            <Post v-for="(post, index) in posts" class="infinite-list-item" :key="index" :post="post"></Post>
+        </el-col>
+        <el-backtop target=".el-row"></el-backtop>
+    </el-row>
 </template>
 
 <script>
@@ -32,18 +26,20 @@ export default {
     },
     created() {
         // 请求10个post
-        api.getPosts()
+        api.post.getPosts()
         .then((data) => {
-            console.log(data);
-            this.posts.push(data.data.res);
+            //console.log(data);
+            for (let i = 0; i < 10; i++) {
+                this.posts.push(data.data.res[i]);
+            }
         })
         .catch(err => {
             console.log(err);
         });
-
         // 得到主页的轮播图
         api.getCarousels()
         .then((data) => {
+            //console.log(data);
             this.carousels = data.data.res;
         })
         .catch(err => {
@@ -57,5 +53,28 @@ export default {
             posts: [],
         };
     },
+    methods: {
+        // 页面加载进来或者滑到最下面加载10个post
+        loadSomePosts() {
+            api.post.getPosts()
+            .then((data) => {
+                //console.log(data);
+                for (let i = 0; i < 10; i++) {
+                    this.posts.push(data.data.res[i]);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
+    }
 };
 </script>
+
+<style>
+.infinite-list {
+    overflow: auto;
+    width: 100%;
+    height: 85vh;
+}
+</style>

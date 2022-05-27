@@ -13,5 +13,21 @@ export default {
         return axios.get(
             "post/carousels"
         )
+    },
+    // 获取图片
+    getImage: (url) => {
+        return axios.get(
+            `file/image/${url}`
+        )
+    },
+    upload: () => {
+        // mock 图片
+        return axios.post("file/image")
+    },
+    getImg3() {
+        return axios.get("image")
+    },
+    getReply() {
+        return axios.get("reply")
     }
 }

@@ -9,6 +9,12 @@ const mutations = {
     logout(state) {
         state.isLogin = false;
         state.user = {};
+    },
+    loading(state) {
+        state.loading = true;
+    },
+    finishLoad(state) {
+        state.loading = false;
     }
 }
 
