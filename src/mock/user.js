@@ -26,7 +26,7 @@ const chatUsers = [
     {
         nickname: "芜湖",
         avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png",
-        userId: 123456
+        userId: 12345611
     },
     {
         nickname: Mock.Random.cname(),

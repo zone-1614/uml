@@ -38,7 +38,6 @@ export default {
     props: ["chatUser"],
     created() {
         this.user = this.$store.state.user;
-        console.log(this.user);
         api.getReply().then((data) => {
             this.messages = data.data.res;
             this.$nextTick(() => {
@@ -71,13 +70,10 @@ export default {
                 content: this.input
             });
             this.input = "";
-            console.log(messages[messages.length - 1]);
-            this.$refs.bottomAnchor.scrollIntoView(); 
+            this.$nextTick(() => {
+                this.$refs.bottomAnchor.scrollIntoView();
+            })
         }
-    },
-    mounted() {
-        // 聊天页默认滚到最下
-        this.$refs.bottomAnchor.scrollIntoView(); 
     }
 };
 </script>
