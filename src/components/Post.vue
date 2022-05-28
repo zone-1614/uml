@@ -1,6 +1,6 @@
 <template>
+<transition enter="animate__animated animate__pulse">
     <div class="post">
-        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->
         <el-card v-if="post">
             <el-row :gutter="20">
                 <el-col :span="2">
@@ -54,6 +54,7 @@
             </el-row>
         </el-card>
     </div>
+</transition>
 </template>
 
 <script>
@@ -95,7 +96,7 @@ export default {
         },
         routeToUserDetail() {
             this.$router.push(`/userdetail/${this.post.userid}`);
-        },
+        }
     },
     computed: {
         summary() {
@@ -134,6 +135,12 @@ a {
 
 .post {
     margin: 20px;
+    transition: 0.5s;
+}
+
+.post:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
 }
 
 .post-time {

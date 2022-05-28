@@ -45,7 +45,7 @@ var posts = [
         // user: {
         userid: 1,
         nickname: Mock.Random.cname(),
-        avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502204637.png",
+        avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220524075346.png",
         gender: 0,
         like: 23,
         postNumber: 15,
