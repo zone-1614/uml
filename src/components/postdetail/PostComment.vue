@@ -73,6 +73,10 @@ export default {
         this.likeNum = Math.ceil(Math.random()*10);
         api.getSubComment().then(data => {
             this.subComments = data.data.res;
+            if (this.comment.nickname == this.$store.state.user.nickname) {
+                this.likeNum = 0;
+                this.subComments = [];
+            }
         })
         .catch(err => {
             console.log(err);
