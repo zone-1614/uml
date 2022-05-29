@@ -35,8 +35,59 @@ export default {
                 post, commentsForPost
             }
         }
+    },
+    getSubComment() {
+        const r = Mock.Random.integer(0, 6)
+        return {
+            res: subComment.slice(r)
+        }
     }
 };
+
+var subComment = [
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    },
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    },
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    },
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    },
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    },
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    },
+    {
+        nickname: Mock.Random.cname(),
+        avatar: Mock.Random.dataImage("50x50"),
+        content: Mock.Random.csentence(),
+        time: Mock.Random.date()
+    }
+]
 
 var posts = [
     {
@@ -51,7 +102,7 @@ var posts = [
         postNumber: 15,
         // },
         content: Mock.Random.cparagraph(5, 15),
-        createTime: Mock.Random.datetime(),
+        createTime: Mock.Random.date(),
         tag: ["买东西", "C10"],
     },
     {
@@ -65,7 +116,7 @@ var posts = [
         like: 21,
         postNumber: 6,
         // },
-        createTime: Mock.Random.datetime(),
+        createTime: Mock.Random.date(),
         content: Mock.Random.csentence(),
         tag: ["游戏"],
     },
@@ -80,7 +131,7 @@ var posts = [
         like: 26,
         postNumber: 3,
         // },
-        createTime: Mock.Random.datetime(),
+        createTime: Mock.Random.date(),
         content: Mock.Random.csentence(),
         tag: ["交易", "讲座票"],
     },
@@ -95,7 +146,7 @@ var posts = [
         like: 8,
         postNumber: 1,
         // },
-        createTime: Mock.Random.datetime(),
+        createTime: Mock.Random.date(),
         content: "",
         tag: ["组队", "外卖", "C10"],
     },
@@ -110,7 +161,7 @@ var posts = [
         like: 28,
         postNumber: 7,
         // },
-        createTime: Mock.Random.datetime(),
+        createTime: Mock.Random.date(),
         content: Mock.Random.csentence(),
     },
     {
@@ -124,7 +175,7 @@ var posts = [
         like: 5,
         postNumber: 2,
         // },
-        createTime: Mock.Random.datetime(),
+        createTime: Mock.Random.date(),
         content: Mock.Random.csentence(),
     },
 ];
@@ -169,7 +220,7 @@ var comments = [
         nickname: "路人",
         content: "正确的，明智的，客观的，一阵见血的，直击要害的",
         avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220524075346.png",
-        createTime: Mock.Random.datetime()
+        createTime: Mock.Random.date()
     },
     {
         postId: 1,
@@ -177,7 +228,7 @@ var comments = [
         nickname: "abcde",
         content: Mock.Random.cparagraph(5, 15),
         avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202318.png",
-        createTime: Mock.Random.datetime()
+        createTime: Mock.Random.date()
     },
     {
         postId: 1,
@@ -185,7 +236,7 @@ var comments = [
         nickname: "^_^",
         content: Mock.Random.cparagraph(5, 15),
         avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220502202202.png",
-        createTime: Mock.Random.datetime()
+        createTime: Mock.Random.date()
     },
     {
         postId: 1,
@@ -193,7 +244,7 @@ var comments = [
         nickname: "yyd",
         content: Mock.Random.cparagraph(5, 15),
         avatar: Mock.Random.dataImage("50x50"),
-        createTime: Mock.Random.datetime()
+        createTime: Mock.Random.date()
     },
     {
         postId: 1,
@@ -201,6 +252,6 @@ var comments = [
         nickname: "jkl",
         content: Mock.Random.cparagraph(5, 15),
         avatar: Mock.Random.dataImage("50x50"),
-        createTime: Mock.Random.datetime()
+        createTime: Mock.Random.date()
     }
 ];

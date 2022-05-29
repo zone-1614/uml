@@ -1,12 +1,12 @@
 <template>
     <el-row>
         <!-- 左边的用户列表，选择来进行聊天 -->
-        <el-col :span="6">
+        <el-col :span="6" v-animate-css="'fadeIn'">
             <!-- <el-card> -->
                 <UserList :users="chatUsers" @chatWith="chatWithUser"></UserList>
             <!-- </el-card> -->
         </el-col>
-        <el-col :span="18">
+        <el-col :span="18" v-animate-css="'fadeIn'">
             <el-card>
                 <ChatWith :user="chatUsers[chatIndex]"></ChatWith>
             </el-card>

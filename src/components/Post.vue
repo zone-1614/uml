@@ -1,5 +1,4 @@
 <template>
-<transition enter="animate__animated animate__pulse">
     <div class="post">
         <el-card v-if="post">
             <el-row :gutter="20">
@@ -35,8 +34,7 @@
                 </el-col>
                 <el-col :span="4">
                     <div class="post-time">
-                        <i class="el-icon-time"></i>
-                        {{ post.createTime }}
+                        <i class="el-icon-time"> {{ post.createTime }}</i>
                     </div>
                 </el-col>
             </el-row>
@@ -54,7 +52,6 @@
             </el-row>
         </el-card>
     </div>
-</transition>
 </template>
 
 <script>
