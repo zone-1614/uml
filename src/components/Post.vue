@@ -1,6 +1,5 @@
 <template>
     <div class="post">
-        <!-- <el-card @click.native="clickPost" > 点击整个卡片都能跳转就加上这个click -->
         <el-card v-if="post">
             <el-row :gutter="20">
                 <el-col :span="2">
@@ -35,8 +34,7 @@
                 </el-col>
                 <el-col :span="4">
                     <div class="post-time">
-                        <i class="el-icon-time"></i>
-                        {{ post.createTime }}
+                        <i class="el-icon-time"> {{ post.createTime }}</i>
                     </div>
                 </el-col>
             </el-row>
@@ -95,7 +93,7 @@ export default {
         },
         routeToUserDetail() {
             this.$router.push(`/userdetail/${this.post.userid}`);
-        },
+        }
     },
     computed: {
         summary() {
@@ -134,6 +132,12 @@ a {
 
 .post {
     margin: 20px;
+    transition: 0.5s;
+}
+
+.post:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
 }
 
 .post-time {

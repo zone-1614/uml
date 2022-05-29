@@ -29,5 +29,8 @@ export default {
     },
     getReply() {
         return axios.get("reply")
+    },
+    getSubComment() {
+        return axios.get("subcomment")
     }
 }

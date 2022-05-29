@@ -1,6 +1,6 @@
 <template>
     <el-row class="infinite-list" v-infinite-scroll="loadSomePosts">
-        <el-col :span="16" :offset="4" >
+        <el-col :span="16" :offset="4">
             <el-carousel indicator-position="outside" trigger="click">
                 <el-carousel-item
                     v-for="item in carousels.length"
@@ -28,7 +28,6 @@ export default {
         // 请求10个post
         api.post.getPosts()
         .then((data) => {
-            //console.log(data);
             for (let i = 0; i < 10; i++) {
                 this.posts.push(data.data.res[i]);
             }

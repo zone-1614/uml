@@ -9,7 +9,6 @@
 import PostContent from "@/components/postdetail/PostContent.vue"
 import PostComment from "@/components/postdetail/PostComment.vue"
 import api from "@/api/index"
-import Mock from "mockjs"
 export default {
     name: "PostDetail",
     components: {
@@ -21,8 +20,6 @@ export default {
             const res = data.data.res;
             this.post = res.post[0];
             this.comments = res.commentsForPost;
-            console.log(this.post);
-            console.log(this.comments);
         })
         .catch((err) => {
             console.log(err);
@@ -41,9 +38,9 @@ export default {
                 content: replyContent,
                 nickname: this.$store.state.user.nickname,
                 avatar: this.$store.state.user.avatar,
-                createTime: Mock.Random.datetime()
+                createTime: "2022-05-29"
             }
-            this.comments.unshift(comment);
+            this.comments.push(comment);
         }
     }
 }

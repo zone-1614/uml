@@ -16,7 +16,7 @@
         <!-- 发送信息 -->
         <el-row class="input-row">
             <el-col :span="20">
-                <el-input resize="none" type="textarea" :rows="5" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容"></el-input>
+                <el-input resize="none" type="textarea" :rows="3" maxlength="100" show-word-limit v-model="input" placeholder="请输入内容"></el-input>
             </el-col>
             <el-col :span="4">
                 <el-button type="primary" icon="el-icon-chat-square" @click="add">
@@ -38,7 +38,6 @@ export default {
     props: ["chatUser"],
     created() {
         this.user = this.$store.state.user;
-        console.log(this.user);
         api.getReply().then((data) => {
             this.messages = data.data.res;
             this.$nextTick(() => {
@@ -71,13 +70,10 @@ export default {
                 content: this.input
             });
             this.input = "";
-            console.log(messages[messages.length - 1]);
-            this.$refs.bottomAnchor.scrollIntoView(); 
+            this.$nextTick(() => {
+                this.$refs.bottomAnchor.scrollIntoView();
+            })
         }
-    },
-    mounted() {
-        // 聊天页默认滚到最下
-        this.$refs.bottomAnchor.scrollIntoView(); 
     }
 };
 </script>
@@ -85,14 +81,14 @@ export default {
 <style scoped>
 .chatroom {
     width: 100%;
-    height: 60vh;
+    height: 55vh;
 }
 .input {
     width: 100%;
     height: 100px;
 }
-.sendButton {
-    margin-top: 30px;
+.el-button {
+    margin-left: 10px;
 }
 
 .input-row {

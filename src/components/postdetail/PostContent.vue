@@ -15,8 +15,8 @@
                         <b>{{post.title}}</b>
                     </el-col>
                     <el-col :span="2" :offset="10">
-                        <el-button type="primary" plain size="mini">
-                            关注ta
+                        <el-button type="primary" plain size="mini" @click="clickFollow">
+                            {{followText}}
                         </el-button>
                     </el-col>
                 </el-row>
@@ -39,22 +39,22 @@
                 <el-row class="bottom-util">
                     <!-- 帖子分割线下面的“点赞” “收藏” ”分享“ -->
                     <el-col :span="2">
-                        <el-button icon="el-icon-thumb" size="mini" circle></el-button>
+                        <el-button icon="el-icon-thumb" size="mini" round @click="toggleLike">{{likeNum}}</el-button>
                     </el-col>
                     <el-col :span="2">
-                        <el-button v-if="!like" icon="el-icon-star-off" size="mini" circle @click="toggleLike"></el-button>
-                        <el-button v-else icon="el-icon-star-on" size="mini" circle @click="toggleLike"></el-button>
+                        <el-button v-if="!fav" icon="el-icon-star-off" size="mini" round @click="toggleFav">收藏</el-button>
+                        <el-button v-else icon="el-icon-star-on" size="mini" round @click="toggleFav">收藏</el-button>
                     </el-col>
-                    <el-col :span="2">
-                        <el-button icon="el-icon-share" size="mini" circle></el-button>
-                    </el-col>
+                    <!-- <el-col :span="2">
+                        <el-button icon="el-icon-share" size="mini" round>分享</el-button>
+                    </el-col> -->
                     <!-- 参与讨论按钮，点击后切换为“取消”和“发送”两个按钮 -->
-                    <el-col :span="2" :offset="16" v-if="!input">
+                    <el-col :span="2" :offset="18" v-if="!input">
                         <el-button type="primary" plain size="mini" @click="showInput" id="reply">
                             参与讨论
                         </el-button>
                     </el-col>
-                    <el-col :span="4" :offset="14" v-else>
+                    <el-col :span="4" :offset="16" v-else>
                         <el-button type="primary" plain size="mini" @click="cancelInput" id="cancel">
                             取消
                         </el-button>
@@ -63,10 +63,12 @@
                         </el-button>
                     </el-col>
                 </el-row>
-                <!-- 点击参与讨论之后出现的输入框 -->
+                <!-- 点击参与讨论之后出现的输入框  v-animate-css="'fadeInLeft'"-->
+                <!-- <transition name="sub-comments"> -->
                 <el-row v-if="input" class="reply-input">
                     <el-input v-model="replyContent" placeholder="请输入内容"></el-input>
                 </el-row>
+                <!-- </transition> -->
             </el-card>
         </el-col>
     </el-row>
@@ -80,13 +82,41 @@ export default {
     data() {
         return {
             like: false,
+            likeNum: 12,
+            fav: false,
             input: false,
-            replyContent: ""
+            replyContent: "",
+            follow: false
         };
     },
+    computed: {
+        followText() {
+            if (this.follow) {
+                return "取消关注";
+            } else {
+                return "关注ta";
+            }
+        }
+    },
     methods: {
+        clickFollow() {
+            this.follow = !this.follow;  
+        },
         toggleLike() {
             this.like = !this.like;
+            if (this.like) {
+                this.likeNum++;
+            } else {
+                this.likeNum--;
+            }
+        },
+        toggleFav() {
+            this.fav = !this.fav;
+            if (this.fav) {
+                this.$message.success("收藏成功")
+            } else {
+                this.$message.success("取消收藏")
+            }
         },
         showInput() {
             this.input = true;
@@ -98,13 +128,17 @@ export default {
             document.getElementById("cancel").blur(); // 使用dom失去焦点
         },
         sendReply() {
+            if (this.replyContent.trim() == "") {
+                this.$message.warning("回复不能为空");
+                return ;
+            }
             this.input = false;
             if (this.$store.state.isLogin) {
                 this.$emit("addComment", this.replyContent);
+                this.replyContent = "";
             } else {
                 this.$message.warning("请先登录");
             }
-            this.replyContent = "";
         }
     },
     components: { FloatingDetail }
@@ -146,4 +180,14 @@ export default {
 .reply-input {
     margin-top: 20px;
 }
+/* 
+.sub-comments-leave-active,.sub-comments-enter-active {
+    transition: max-height 0.3s;
+}
+.sub-comments-enter,.sub-comments-leave-to {
+    max-height:0 ;
+}
+.sub-comments-enter-to,.sub-comments-leave {
+    max-height: 4rem ;
+} */
 </style>
