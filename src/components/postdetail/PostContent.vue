@@ -64,9 +64,11 @@
                     </el-col>
                 </el-row>
                 <!-- 点击参与讨论之后出现的输入框  v-animate-css="'fadeInLeft'"-->
+                <!-- <transition name="sub-comments"> -->
                 <el-row v-if="input" class="reply-input">
                     <el-input v-model="replyContent" placeholder="请输入内容"></el-input>
                 </el-row>
+                <!-- </transition> -->
             </el-card>
         </el-col>
     </el-row>
@@ -178,4 +180,14 @@ export default {
 .reply-input {
     margin-top: 20px;
 }
+/* 
+.sub-comments-leave-active,.sub-comments-enter-active {
+    transition: max-height 0.3s;
+}
+.sub-comments-enter,.sub-comments-leave-to {
+    max-height:0 ;
+}
+.sub-comments-enter-to,.sub-comments-leave {
+    max-height: 4rem ;
+} */
 </style>

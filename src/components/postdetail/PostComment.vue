@@ -191,4 +191,5 @@ export default {
     margin-top: 5px;
     padding-right: 10px;
 }
+
 </style>
