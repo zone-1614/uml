@@ -95,15 +95,23 @@ export default {
     },
     methods: {
         toggleLike() {
-            // 点赞和取消点赞
-            this.like = !this.like;
-            if (this.like) {
-                this.likeNum++;
+            if (this.$store.state.isLogin) {
+                // 点赞和取消点赞
+                this.like = !this.like;
+                if (this.like) {
+                    this.likeNum++;
+                } else {
+                    this.likeNum--;
+                }
             } else {
-                this.likeNum--;
+                this.$message.warning("请先登录");
             }
         },
         sendSubComment() {
+            if (!this.$store.state.isLogin) {
+                this.$message.warning("请先登录");
+                return ;
+            }
             if (this.commentContent.trim() == "") {
                 this.$message.warning("回复不能为空");
                 return ;

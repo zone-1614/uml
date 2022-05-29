@@ -100,22 +100,34 @@ export default {
     },
     methods: {
         clickFollow() {
-            this.follow = !this.follow;  
+            if (this.$store.state.isLogin) {
+                this.follow = !this.follow; 
+            } else {
+                this.$message.warning("请先登录");
+            } 
         },
         toggleLike() {
-            this.like = !this.like;
-            if (this.like) {
-                this.likeNum++;
+            if (this.$store.state.isLogin) {
+                this.like = !this.like;
+                if (this.like) {
+                    this.likeNum++;
+                } else {
+                    this.likeNum--;
+                }
             } else {
-                this.likeNum--;
+                this.$message.warning("请先登录");
             }
         },
         toggleFav() {
-            this.fav = !this.fav;
-            if (this.fav) {
-                this.$message.success("收藏成功")
+            if (this.$store.state.isLogin) {
+                this.fav = !this.fav;
+                if (this.fav) {
+                    this.$message.success("收藏成功")
+                } else {
+                    this.$message.success("取消收藏")
+                }
             } else {
-                this.$message.success("取消收藏")
+                this.$message.warning("请先登录");
             }
         },
         showInput() {
