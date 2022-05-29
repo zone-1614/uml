@@ -19,7 +19,7 @@
                 </el-row>
                 <!-- 回复内容 -->
                 <el-row>
-                    <el-col :span="22" class="commennt-col">
+                    <el-col class="commennt-col">
                         {{comment.content}}
                     </el-col>
                 </el-row>
@@ -34,20 +34,31 @@
                         <el-button v-else icon="el-icon-caret-top" size="mini" round @click="toggleShowSubComment">收起 {{subComments.length}}</el-button>
                     </el-col>
                 </el-row>
+                <!-- 子评论相关 -->
                 <el-row v-if="showSubComment" class="reply-input">
+                    <!-- 子评论输入框 -->
                     <el-row class="sub-comment-input">
                         <el-input v-model="commentContent" placeholder="请输入内容" >
                             <el-button slot="append" icon="el-icon-position" @click="sendSubComment"></el-button>
                         </el-input>
                     </el-row>
-                    <el-row v-for="(sc, idx) in subComments" :key="idx" type="flex" align="middle" class="sub-comment">
-                        <el-col :span="1">
-                            <el-avatar :src="sc.avatar" size="small"></el-avatar>
-                        </el-col>
-                        <el-col :span="2" class="sub-comment-name">{{sc.nickname}}</el-col>
-                        <el-col :span="16" class="sub-comment-content">{{sc.content}}</el-col>
-                        <el-col :span="3" :offset="1" class="time">发表于 {{sc.time}}</el-col>
-                    </el-row>
+                    <!-- 子评论 -->
+                    <div v-for="(sc, idx) in subComments" :key="idx" class="sub-comment">
+                        <!-- 子评论头像 名字 时间 -->
+                        <el-row type="flex" align="middle">
+                            <el-col :span="1">
+                                <el-avatar :src="sc.avatar" size="small"></el-avatar>
+                            </el-col>
+                            <el-col :span="2" class="sub-comment-name">{{sc.nickname}}</el-col>
+                            <el-col :span="3" class="time">发表于 {{sc.time}}</el-col>
+                        </el-row>
+                        <!-- 子评论内容 -->
+                        <el-row>
+                            <el-col class="sub-comment-content">
+                                {{sc.content}}
+                            </el-col>
+                        </el-row>
+                    </div>
                 </el-row>
             </el-card>
         </el-col>
@@ -84,6 +95,7 @@ export default {
     },
     methods: {
         toggleLike() {
+            // 点赞和取消点赞
             this.like = !this.like;
             if (this.like) {
                 this.likeNum++;
@@ -148,6 +160,7 @@ export default {
     padding-left: 20px;
     text-align: start;
     line-height: 25px;
+    padding-right: 15px;
 }
 
 .bottom-util {
@@ -174,6 +187,8 @@ export default {
     color:#8a8383;
 }
 .sub-comment-content {
-    text-align: left;
+    text-align: start;
+    margin-top: 5px;
+    padding-right: 10px;
 }
 </style>
