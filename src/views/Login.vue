@@ -35,12 +35,12 @@
                             <!-- 头像 -->
                             <el-upload
                                 class="avatar-uploader"
-                                action="http://localhost:8080/api/file/image"
+                                action="http://localhost:8080/api/file/insert"
                                 :show-file-list="false"
                                 :on-success="handleAvatarSuccess"
                                 :before-upload="beforeAvatarUpload"
                                 :on-preview="removeFile"
-                                name="image">
+                                name="file">
                                 <img v-if="imageUrl" :src="imageUrl" class="avatar">
                                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                             </el-upload>
@@ -119,16 +119,13 @@ export default {
             disableUpload: false, // 用于上传头像后，再次点击删除
         };
     },
-    created() {
-        this.showCard = true; //动画
-    },
     methods: {
         onLoginClick() {
             var vue = this;
             api.user.login(this.loginForm)
             .then((data) => {
                 if (data.status === 200) {
-                    console.log(data.data.res.user);
+                    console.log(data);
                     vue.$store.commit("login", data.data.res.user);
                     vue.$router.push("/home"); // 登陆成功跳转首页
                 }
@@ -161,6 +158,7 @@ export default {
             this.registerDisabled = false;
         },
         handleAvatarSuccess(res, file) {
+            console.log(res);
             this.imageUrl = URL.createObjectURL(file.raw);
             console.log(this.imageUrl);
         },

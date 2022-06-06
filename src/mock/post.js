@@ -218,7 +218,7 @@ var comments = [
         postId: 1,
         userId: 1,
         nickname: "路人",
-        content: "正确的，明智的，客观的，一阵见血的，直击要害的",
+        content: Mock.Random.cparagraph(5, 15),
         avatar: "https://raw.githubusercontent.com/zone-1614/pic/main/img/20220524075346.png",
         createTime: Mock.Random.date()
     },
