@@ -6,7 +6,7 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import animate from "v-animate-css";
 import animated from "animate.css";
-// require("./mock");
+require("./mock");
 
 Vue.config.productionTip = false;
 
